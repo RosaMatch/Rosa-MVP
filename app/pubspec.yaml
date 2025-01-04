@@ -1,5 +1,5 @@
-name: app
-description: "A new Flutter project."
+name: rosa
+description: "The Minimum Viable Product for Rosa"
 publish_to: 'none'
 version: 0.1.0
 
@@ -11,9 +11,12 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true
+  assets:
+    - lib/assets/images/
