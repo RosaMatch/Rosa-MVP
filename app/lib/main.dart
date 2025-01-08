@@ -16,7 +16,7 @@ final GoRouter _router = GoRouter(
     ),
     GoRoute(
       path: '/intakes',
-      builder: (context, state) => const Intakes(),
+      builder: (context, state) => const MyCustomForm(),
     ),
   ],
 );
