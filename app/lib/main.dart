@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'login.dart';
 import 'constants.dart';
 import 'homepage.dart';
 import 'intakes.dart';
@@ -16,8 +17,12 @@ final GoRouter _router = GoRouter(
     ),
     GoRoute(
       path: '/intakes',
-      builder: (context, state) => const MyCustomForm(),
+      builder: (context, state) => const IntakeForm(),
     ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginForm(),
+    )
   ],
 );
 
