@@ -13,12 +13,12 @@ class LoginForm extends StatefulWidget {
 
 class Login extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
-  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
   void dispose() {
-    usernameController.dispose();
+    emailController.dispose();
     passwordController.dispose();
     super.dispose();
   }
@@ -26,105 +26,90 @@ class Login extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            Image.asset(
-              'assets/icon/rosa_icon.png',
-              width: 74,
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 268.0),
-              child: Icon(
-                Icons.settings,
-                color: Colors.white,
-                size: 64,
-              ),
-            ),
-          ],
-        ),
-        toolbarHeight: 84,
-        backgroundColor: rosaRedColor,
-      ),
       body: Center(
         child: Column(
+          //mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(width: 20, height: 20),
-            const Text(
-              'Login',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: rosaRedColor),
+            Padding(
+              padding: const EdgeInsets.only(top: 140, bottom: 74),
+              child: Image.asset(
+                'assets/icons/rosa_icon_circle.png',
+                height: 160,
+                width: 160,
+              )
             ),
-            const SizedBox(width: 15, height: 15),
+            //const SizedBox(width: 15, height: 15),
+            
             Form(
               key: _formKey,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SizedBox(
-                    width: 300, // Set the desired width
-                    child: TextFormField(
-                      key: const Key('username'),
-                      controller: usernameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Username',
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: SizedBox(
+                      width: 300,
+                      height: 40,
+                      child: TextFormField(
+                        key: const Key('email'),
+                        controller: emailController,
+                        decoration: generateInputDecoration('Email'),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your email address';
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your username';
-                        }
-                        return null;
-                      },
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  SizedBox(
-                    width: 300, // Set the desired width
-                    child: TextFormField(
-                      key: const Key('password'),
-                      controller: passwordController,
-                      decoration: const InputDecoration(
-                        labelText: 'Password',
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: SizedBox(
+                      width: 300, // Set the desired width
+                      height: 40,
+                      child: TextFormField(
+                        key: const Key('password'),
+                        controller: passwordController,
+                        decoration: generateInputDecoration('Password'),
+                        obscureText: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your password';
+                          }
+                          return null;
+                        },
                       ),
-                      obscureText: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        return null;
-                      },
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(width: 30, height: 30),
-            ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        content: Text(
-                          'Login successful.\n'
-                          'Welcome, ${usernameController.text}!\n'
-                          'Password: ${passwordController.text}\n'
-                          'You will now be redirected to the Intakes page.',
-                          style: const TextStyle(fontSize: 16),
-                        ),
-                      );
-                    },
-                  );
-                  Future.delayed(const Duration(seconds: 3), () {
-                    if (mounted) {
-                      Navigator.of(context).pop();
-                      context.go('/intakes');
-                    }
-                  });
-                }
-              },
-              child: const Text('Login'),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: ElevatedButton(
+                style: loginButtonStyle,
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    context.push('/intakes');
+                  }
+                },
+                child: const Text('Login'),
+              ),
             ),
+            Divider(
+              color: dividerColor,
+              indent: 40,
+              endIndent: 40,
+              //width: 326,
+            )
+            // ElevatedButton(
+            //   onPressed: () {
+            //     print("Hey");
+            //   },
+            //   child: Text('Login with Google'),
+            // )
           ],
         ),
       ),
