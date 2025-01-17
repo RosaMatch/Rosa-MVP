@@ -63,6 +63,12 @@ class Home extends StatelessWidget {
               },
               child: const Text('Go to Intakes'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/testcollege_profile');
+              },
+              child: const Text('Go to College Profile'),
+            ),
           ],
         ),
       ),
