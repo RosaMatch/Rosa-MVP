@@ -983,6 +983,88 @@ class ParallaxContainer extends StatelessWidget{
 
 }
 
+class StudentInsights extends StatelessWidget{
+  const StudentInsights({
+    super.key,
+    required this.data,
+  });
+
+  final List data;
+  @override
+  Widget build(BuildContext context) {
+    return Card.outlined(
+      color: Color.fromARGB(225, 82,25,39),
+      shape: RoundedRectangleBorder(
+        side:BorderSide(
+          width:1,
+          color: Color.fromARGB(255, 7,43,75)
+        ),
+        borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(0.0),
+              topRight: Radius.circular(20.0),
+              bottomRight: Radius.circular(20.0),
+              bottomLeft: Radius.circular(0.0),
+            ),),
+      
+      child:Container(
+        width: (MediaQuery.of(context).size.width < 800) ? MediaQuery.of(context).size.width * .4 : 320,
+        padding: const EdgeInsets.all(12.0),
+
+          child: 
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Text("Your Insights",
+                      style: TextStyle( fontWeight:FontWeight.bold,fontSize:12,color: Colors.white,)),
+                  ],
+                ),
+                Divider(color: Color(0xff6c565c)),
+                Container(
+                  padding: const EdgeInsets.only(left:4),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      for(var dataBit in data)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.star_rounded,
+                              color: Color(0xff6c565c),
+                              size: 16),
+                            
+                              Flexible(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left:8.0),
+                                  child: 
+                                  Text( dataBit , 
+                                    textAlign: TextAlign.center ,
+                                    style: TextStyle( fontSize:16,color: Colors.white,),
+                                  ),
+                                ),
+                              ),
+                              
+                          ],
+                        )
+                    ],
+                  ),
+                )
+                
+                      
+                    
+                
+              ],
+            )
+            
+          ,
+        ),
+      
+    );
+  }
+}
+
 class ExecutiveSummary extends StatelessWidget{
   const ExecutiveSummary({
     super.key,
@@ -1013,8 +1095,8 @@ class ExecutiveSummary extends StatelessWidget{
         width: (MediaQuery.of(context).size.width < 800) ? MediaQuery.of(context).size.width * .75 : 600,
         
         padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: [
+        child: Flexible(
+          child: 
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -1023,7 +1105,7 @@ class ExecutiveSummary extends StatelessWidget{
                 ],
             )
             
-          ],
+          ,
         ),
       )
     );
@@ -1096,13 +1178,13 @@ class LocationListItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
       child: AspectRatio(
-        aspectRatio:  screenWidth/ screenHeight,
+        aspectRatio:  screenWidth/ (screenHeight*1.25),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: Stack(
             children: [
               _buildParallaxBackground(context),
-             // _buildGradient(),
+              _buildGradient(),
               _buildTitleAndSubtitle(context),
             ],
           ),
@@ -1135,10 +1217,10 @@ class LocationListItem extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [const Color.fromARGB(5, 238,242 ,232), Color.fromARGB(255,238,242 ,232)],
+            colors: [const Color.fromARGB(75, 0,0 ,0), Color.fromARGB(75,0,0 ,0)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            stops: const [0.85, 1],
+            stops: const [0, 1],
           ),
         ),
       ),
@@ -1158,6 +1240,14 @@ class LocationListItem extends StatelessWidget {
                 children:[
                   SizedBox(width: screenWidth * 0.05,),
                   CollegeMantra(mantra: "Think deeply, enjoy the challenge, and explore thoughtfully at Reed College.")
+                ]
+              ),
+              Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children:[
+                  SizedBox(width: screenWidth * 0.05,),
+                  StudentInsights(data: ["74K Avg COA", "1:8 S-F Ration", "Pop. 1400", "Open Crclm"])
                 ]
               ),
               Spacer(),
