@@ -62,3 +62,23 @@ InputDecoration generateInputDecoration(String hint) {
 
   return decoration;
 }
+const double iconSize= 30.0;
+//ICONS
+const Icon essayIcon = Icon(Icons.history_edu_outlined, color: Color.fromRGBO(82, 25, 39, 1), size: iconSize,);
+const Icon fundingIcon = Icon(Icons.savings_outlined, color: Color.fromRGBO(82, 25, 39, 1), size: iconSize,);
+const Icon researchSchoolsIcon = Icon(Icons.search_outlined, color: Color.fromRGBO(82, 25, 39, 1), size: iconSize,);
+const Icon outreachIcon = Icon(Icons.question_answer_outlined, color: Color.fromRGBO(82, 25, 39, 1), size: iconSize,);
+const Icon fitfactorIcon = Icon(Icons.extension_outlined, color: Color.fromRGBO(82, 25, 39, 1), size: iconSize,);
+const Icon everythingIcon = Icon(Icons.sentiment_very_satisfied_outlined, color: Color.fromRGBO(82, 25, 39, 1), size: iconSize,);
+
+
+const Icon COAIcon = Icon(Icons.payments_outlined, color: Color.fromRGBO(243, 252, 250, 1), size: iconSize,);
+const Icon researchIcon = Icon(Icons.biotech_outlined, color: Color.fromRGBO(243, 252, 250, 1), size: iconSize,);
+const Icon careerIcon = Icon(Icons.work_outline, color: Color.fromRGBO(243, 252, 250, 1), size: 30.0,);
+const Icon sportsIcon = Icon(Icons.sports_football_outlined, color: Color.fromRGBO(243, 252, 250, 1), size: iconSize,);
+const Icon locationIcon = Icon(Icons.location_on_outlined, color: Color.fromRGBO(243, 252, 250, 1), size: iconSize,);
+const Icon volunteerIcon = Icon(Icons.volunteer_activism_outlined, color: Color.fromRGBO(243, 252, 250, 1), size: iconSize,);
+const Icon communityIcon = Icon(Icons.groups_outlined, color: Color.fromRGBO(243, 252, 250, 1), size: 30.0,);
+const Icon academicIcon = Icon(Icons.account_balance_outlined, color: Color.fromRGBO(243, 252, 250, 1), size: iconSize,);
+const Icon curriculumIcon = Icon(Icons.library_books_outlined, color: Color.fromRGBO(243, 252, 250, 1), size: iconSize,);
+const Icon studyAbroadIcon = Icon(Icons.explore_outlined, color: Color.fromRGBO(243, 252, 250, 1), size: iconSize,);
