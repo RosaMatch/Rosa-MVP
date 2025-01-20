@@ -41,6 +41,7 @@ class _HomePageState extends State<Home> {
             currentPage = value;
           });
         },
+        type: BottomNavigationBarType.fixed,
         backgroundColor: textFormBorderColor,
         selectedItemColor: rosaRedColor,
         unselectedItemColor: inactiveRedColor,
@@ -50,10 +51,10 @@ class _HomePageState extends State<Home> {
             icon: Icon(Icons.home),
             label: "Home",
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.lightbulb),
-          //   label: "Insights",
-          // ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.lightbulb),
+            label: "Insights",
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
             label: "List",
@@ -67,6 +68,54 @@ class _HomePageState extends State<Home> {
       body: Center(
         child: Column(
           children: [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+              child: Container(
+                height: 70,
+                //width: 317,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  color: Colors.white,
+
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage('assets/images/juniorpfp.png'),
+                        radius: 31,
+                      ),
+                      // Image.asset(
+                      //   'assets/images/juniorpfp.png',
+                      //   height: 64,
+                      //   width: 64,
+                      // ),
+                      Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Text(
+                          'Welcome Back, Junior',
+                          style: TextStyle(
+                            color: rosaRedColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                          //selectionColor: rosaRedColor
+                        ),
+                      ),
+                    ]
+                  )
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Divider(
+                color: rosaRedColor,
+                indent: 60,
+                endIndent: 60,
+              ),
+            ),
             ElevatedButton(
               onPressed: () {
                 context.go('/login');
