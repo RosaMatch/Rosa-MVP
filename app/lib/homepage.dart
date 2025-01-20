@@ -93,6 +93,13 @@ class _HomePageState extends State<Home> {
               child: const Text('Go to Match'),
 
             ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/');
+              },
+              child: const Text('Go to Login'),
+
+            )
           ],
         ),
       ),
