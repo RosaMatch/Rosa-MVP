@@ -57,7 +57,7 @@ class Profile extends State<CollegeProfile>{
           child: Column(
             children: [
               ParallaxContainer(),
-              Divider(),
+              Divider(color: Color(0xffbec0cb)),
               SizedBox(height: 15,),
               GenericProfile(admissionsData: ["lol", "lol", "lol", "lol", "lol" ,"lol", "lol" ,"lol"],),
               SizedBox(height:20,),
