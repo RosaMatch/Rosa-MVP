@@ -26,6 +26,7 @@ class Login extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       body: Center(
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
@@ -47,14 +48,20 @@ class Login extends State<LoginForm> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(6),
                     child: SizedBox(
                       width: 300,
-                      height: 40,
                       child: TextFormField(
+                        minLines:1,
                         key: const Key('email'),
                         controller: emailController,
-                        decoration: generateInputDecoration('Email'),
+                        decoration: InputDecoration(
+                            hintText: 'Email',
+                            contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
+                          fillColor: Color.fromRGBO(238, 242, 232, 1),
+                          filled: true,),
+
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your email address';
@@ -68,11 +75,17 @@ class Login extends State<LoginForm> {
                     padding: EdgeInsets.all(10),
                     child: SizedBox(
                       width: 300, // Set the desired width
-                      height: 40,
+
                       child: TextFormField(
+                        minLines:1,
                         key: const Key('password'),
                         controller: passwordController,
-                        decoration: generateInputDecoration('Password'),
+                        decoration: InputDecoration(
+                        hintText: 'Password',
+                        contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
+                        fillColor: Color.fromRGBO(238, 242, 232, 1),
+                        filled: true,),
                         obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -87,23 +100,23 @@ class Login extends State<LoginForm> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(20),
-              child: ElevatedButton(
+              padding: EdgeInsets.only(left: 60, right: 60, top: 40),
+              child: Column(children:[ElevatedButton(
                 style: loginButtonStyle,
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     context.push('/intakes');
                   }
                 },
-                child: const Text('Login'),
+                child: const Text('Login', style: TextStyle(color: dividerColor)),
               ),
-            ),
-            Divider(
-              color: dividerColor,
-              indent: 40,
-              endIndent: 40,
-              //width: 326,
-            )
+                SizedBox(height:20),
+                Divider(
+                  color: dividerColor,
+
+                  //width: 326,
+                )])),
+
             // ElevatedButton(
             //   onPressed: () {
             //     print("Hey");
