@@ -5,6 +5,8 @@ import 'login.dart';
 import 'constants.dart';
 import 'homepage.dart';
 import 'intakes.dart';
+import 'match.dart';
+import 'package:confetti/confetti.dart';
 
 void main() {
   runApp(const MainApp());
@@ -27,6 +29,10 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/testcollege_profile',
       builder: (context, state) => const CollegeProfile(),
+    ),
+    GoRoute(
+      path: '/MatchPage1State',
+      builder: (context, state) => const MatchPage1(),
     )
   ],
 );
@@ -37,6 +43,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       routerConfig: _router,
       theme: appTheme,
     );

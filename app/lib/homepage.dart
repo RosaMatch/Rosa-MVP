@@ -69,6 +69,13 @@ class Home extends StatelessWidget {
               },
               child: const Text('Go to College Profile'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/MatchPage1State');
+              },
+              child: const Text('Go to Match'),
+
+            ),
           ],
         ),
       ),
