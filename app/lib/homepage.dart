@@ -37,9 +37,11 @@ class _HomePageState extends State<Home> {
               ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
-          currentPage = value;
+          setState(() {
+            currentPage = value;
+          });
         },
-        backgroundColor: backgroundColorCream2,
+        backgroundColor: textFormBorderColor,
         selectedItemColor: rosaRedColor,
         unselectedItemColor: inactiveRedColor,
         currentIndex: currentPage,
