@@ -62,6 +62,7 @@ InputDecoration generateInputDecoration(String hint) {
 
   return decoration;
 }
+
 const double iconSize= 30.0;
 //ICONS
 const Icon essayIcon = Icon(Icons.history_edu_outlined, color: Color.fromRGBO(82, 25, 39, 1), size: iconSize,);
