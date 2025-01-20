@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'constants.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
-  final int index = 0;
+  @override
+  State<Home> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<Home> {
+  int currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -14,29 +19,39 @@ class Home extends StatelessWidget {
                   children: [
                     Image.asset(
                       'assets/icons/rosa_icon.png',
-                      width: 74,
+                      width: 44,
+                      alignment: Alignment.centerLeft,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 268.0),
-                      child: Icon(
-                        Icons.settings,
-                        color: Colors.white,
-                        size: 64,
-                      ),
-                    ),
+                    // const Padding(
+                    //   padding: EdgeInsets.only(left: 268.0),
+                    //   child: Icon(
+                    //     Icons.settings,
+                    //     color: Colors.white,
+                    //     size: 64,
+                    //   ),
+                    // ),
                   ],
                 ),
-                toolbarHeight: 84,
+                toolbarHeight: 44,
                 backgroundColor: rosaRedColor,
               ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) {
+          currentPage = value;
+        },
         backgroundColor: backgroundColorCream2,
-        currentIndex: index,
+        selectedItemColor: rosaRedColor,
+        unselectedItemColor: inactiveRedColor,
+        currentIndex: currentPage,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",
           ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.lightbulb),
+          //   label: "Insights",
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
             label: "List",
