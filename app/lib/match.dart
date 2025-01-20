@@ -216,6 +216,7 @@ class _MatchPage2State extends State<MatchPage2> {
                   maxLines: 15,
                   decoration: InputDecoration(
                       hintText: "100 words minimum",
+                      hintStyle: TextStyle(fontSize: 16.0, color: Color(0xffb0929c)),
                       enabledBorder: OutlineInputBorder(
                           borderSide:
                               BorderSide(color: textFormBorderColor, width: 2)),
@@ -295,6 +296,7 @@ class _MatchPage3State extends State<MatchPage3> {
                   maxLines: 15,
                   decoration: InputDecoration(
                       hintText: "100 words minimum",
+                      hintStyle: TextStyle(fontSize: 16.0, color: Color(0xffb0929c)),
                       enabledBorder: OutlineInputBorder(
                           borderSide:
                               BorderSide(color: textFormBorderColor, width: 2)),
@@ -533,12 +535,14 @@ class _Match4State extends State<Match4> {
                     height: item.isExpanded ? 200 : 0,
                     curve: Curves.easeInOut,
                     decoration: BoxDecoration(
+                      color: rosaRedColor,
                       borderRadius: BorderRadius.vertical(
                         bottom: Radius.circular(10),
                       ),
                     ),
                     child: item.isExpanded
                         ? ListTile(
+                            tileColor: rosaRedColor,
                             title: Text(
                               item.expandedValue,
                               style: const TextStyle(
