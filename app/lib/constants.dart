@@ -28,7 +28,7 @@ const ButtonStyle loginButtonStyle = ButtonStyle(
 //Themes
 const AppBarTheme appBarTheme = AppBarTheme(
   backgroundColor: rosaRedColor,
-  toolbarHeight: 84,
+  toolbarHeight: 50,
 );
 
 // const BottomAppBarTheme bottomAppBarTheme = BottomAppBarTheme(
