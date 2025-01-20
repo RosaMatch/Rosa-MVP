@@ -1,10 +1,12 @@
 import 'dart:ffi';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'constants.dart';
 import 'package:flutter/rendering.dart';
+
 
 
 // For college profile Ui, the information cannot be hardcoded so I will try to make this as general as possible
@@ -972,7 +974,7 @@ class ParallaxContainer extends StatelessWidget{
     return Column(
         children: [
             LocationListItem(
-              imageUrl: "assets/images/reed.jpg",
+              imageUrl: "assets/images/reed_spring.jpg",
             ),
         ],
       
@@ -1136,7 +1138,7 @@ class CollegeMantra extends StatelessWidget{
           children: [
             Text(mantra , 
               textAlign: TextAlign.left, 
-              style: TextStyle(
+              style: GoogleFonts.spectral(
                 fontSize: 30, 
                 fontWeight: FontWeight.bold , 
                 foreground: Paint()
@@ -1148,10 +1150,10 @@ class CollegeMantra extends StatelessWidget{
 
             Text(mantra , 
               textAlign: TextAlign.left, 
-              style: TextStyle(
+              style: GoogleFonts.spectral(
                 fontSize: 30, 
                 color: Color(0xffffffff),
-                fontWeight: FontWeight.bold , 
+                fontWeight: FontWeight.bold
                 ),
               ),
           ]
