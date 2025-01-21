@@ -11,9 +11,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final List<Widget> pages = [
     HomePage(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold()
+    Placeholder(),
+    Placeholder(),
+    Placeholder()
+  ];
+
+  List<Widget> colleges = [
+
   ];
 
   int currentPage = 0;

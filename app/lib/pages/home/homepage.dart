@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         child: ListView(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 70),
               child: SizedBox(
                 height: 70,
                 child: Card(
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(5),
                         child: Text(
-                          'Welcome Back, Junior',
+                          'Welcome, Junior',
                           style: TextStyle(
                             color: rosaRedColor,
                             fontWeight: FontWeight.bold,
@@ -141,7 +141,7 @@ class HomePage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(5),
                         child: Text(
-                          'Explore Further',
+                          'Agenda',
                           style: TextStyle(
                             color: rosaRedColor,
                             fontWeight: FontWeight.bold,
@@ -161,6 +161,66 @@ class HomePage extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               padding: EdgeInsets.symmetric(horizontal: 5),
                               children: [
+                                AgendaCard(
+                                  imagePath: 'assets/images/introduction_agenda_picture.jpeg',
+                                  title: 'Introduction'
+                                ),
+
+                                AgendaCard(
+                                  imagePath: 'assets/images/myCollegeFit.jpg',
+                                  title: 'My College Fit',
+                                ),
+                              ]
+                            )
+                          )
+                        )
+                      ),
+
+                    ],
+                  )
+                )
+              )
+            ),
+
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Container(
+                height: 220,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                    side: BorderSide(
+                      color: textFormBorderColor,
+                      width: 1,
+                    )
+                  ),
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Text(
+                          'Your Matches',
+                          style: TextStyle(
+                            color: rosaRedColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        )
+                      ),
+                      
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Container(
+                          color: textFormBorderColor,
+                          height: 140,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 10),
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              padding: EdgeInsets.symmetric(horizontal: 5),
+                              children: [
+
                                 CollegeCard(
                                   imagePath: 'assets/images/wesleyan.jpg',
                                   name: 'Wesleyan College',
@@ -420,4 +480,93 @@ class UpdateCard extends StatelessWidget {
       )
     );
   }
+}
+
+class AgendaCard extends StatelessWidget {
+  const AgendaCard({
+    super.key,
+    required this.imagePath,
+    required this.title,
+  });
+
+  final String imagePath;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Stack(
+            children: [
+
+              Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(imagePath),
+                    fit: BoxFit.fitHeight,
+                  ),
+                  border: Border.all(
+                    color: inactiveRedColor,
+                    width: 2,
+                  )
+                  //borderRadius: BorderRadius.circular(25),
+                ),
+              ),
+
+              Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                  //borderRadius: BorderRadius.circular(25),
+                  color: Colors.transparent,
+                ),
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(25)),
+                    color: Colors.white,
+                    border: Border.all(
+                      color: inactiveRedColor,
+                      width: 2,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      right: 15,
+                      left: 5,
+                      top: 5,
+                      bottom: 5,
+                    ),
+                    child: Text(
+                      title,
+                      style: const TextStyle(
+                        color: rosaRedColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 10,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              SizedBox(
+                height: 150,
+                width: 150,
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      //context.go(route);
+                    },
+                    splashColor: rosaRedSplashColor,
+                  )
+                )
+              )
+            ],
+      ),
+    );
+  }
+
 }
