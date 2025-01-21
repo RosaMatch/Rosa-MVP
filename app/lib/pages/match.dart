@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
-import 'package:rosa/homepage.dart';
-import 'constants.dart';
+import 'package:rosa/pages/home/homepage.dart';
+import '../constants/constants.dart';
 import 'package:confetti/confetti.dart';
 
-import 'main.dart';
+import '../main.dart';
 
 class MatchPage1 extends StatefulWidget {
   const MatchPage1({super.key});

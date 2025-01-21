@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rosa/college_profiles/college_profile.dart';
-import 'package:rosa/college_profiles/uBuffProfile.dart';
-import 'package:rosa/college_profiles/wesProfile.dart';
-import 'college_profiles/hunterProfile.dart';
-import 'login.dart';
-import 'constants.dart';
-import 'homepage.dart';
-import 'intakes.dart';
-import 'match.dart';
+import 'package:rosa/pages/college_profiles/college_profile.dart';
+import 'package:rosa/pages/college_profiles/uBuffProfile.dart';
+import 'package:rosa/pages/college_profiles/wesProfile.dart';
+import 'pages/college_profiles/hunterProfile.dart';
+import 'pages/login.dart';
+import 'constants/constants.dart';
+import 'pages/home/homepage.dart';
+import 'pages/intakes.dart';
+import 'pages/match.dart';
 import 'package:confetti/confetti.dart';
 
 void main() {
