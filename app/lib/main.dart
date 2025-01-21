@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rosa/college_profile.dart';
-import 'package:rosa/uBuffProfile.dart';
-import 'package:rosa/wesProfile.dart';
-import 'hunterProfile.dart';
+import 'package:rosa/college_profiles/college_profile.dart';
+import 'package:rosa/college_profiles/uBuffProfile.dart';
+import 'package:rosa/college_profiles/wesProfile.dart';
+import 'college_profiles/hunterProfile.dart';
 import 'login.dart';
 import 'constants.dart';
 import 'homepage.dart';

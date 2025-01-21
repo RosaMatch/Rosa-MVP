@@ -4,19 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
-import 'constants.dart';
+import '../constants.dart';
 import 'package:flutter/rendering.dart';
-//////////////////UBUFF
+//////////////////WES
 
-class CollegeProfileUB extends StatefulWidget {
-  const CollegeProfileUB({super.key});
+class CollegeProfileWES extends StatefulWidget {
+  const CollegeProfileWES({super.key});
 
   @override
-  ProfileUB createState() {
-    return ProfileUB();
+  ProfileWES createState() {
+    return ProfileWES();
   }
 }
-class ProfileUB extends State<CollegeProfileUB>{
+class ProfileWES extends State<CollegeProfileWES>{
   @override
   Widget build(BuildContext context){
     double screenWidth = MediaQuery.of(context).size.width;
@@ -33,11 +33,11 @@ class ProfileUB extends State<CollegeProfileUB>{
                     },
                     child: const Icon(
                       Icons.arrow_back_ios,
-                      color: Color.fromRGBO(139, 149, 170,1),
+                      color: Color.fromRGBO(82,25,39,0.8),
                       size: 32,
                     )
                 ),
-                Text("University at Buffalo"
+                Text("Wesleyan University"
                     , style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
                 ) //CollegeName will be hard coded for now
               ]
@@ -51,7 +51,7 @@ class ProfileUB extends State<CollegeProfileUB>{
                   ParallaxContainer(),
                   Divider(color: Color(0xffbec0cb)),
                   SizedBox(height: 15,),
-                  GenericProfileUB(admissionsData: ["lol", "lol", "lol", "lol", "lol" ,"lol", "lol" ,"lol"],),
+                  GenericProfileWES(admissionsData: ["lol", "lol", "lol", "lol", "lol" ,"lol", "lol" ,"lol"],),
                   SizedBox(height:20,),
                 ]
             ),
@@ -64,8 +64,8 @@ class ProfileUB extends State<CollegeProfileUB>{
 
 }
 
-class GenericProfileUB extends StatelessWidget{
-  const GenericProfileUB({
+class GenericProfileWES extends StatelessWidget{
+  const GenericProfileWES({
     super.key,
     required this.admissionsData,
   });
@@ -111,7 +111,7 @@ class GenericProfileUB extends StatelessWidget{
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                            "University at Buffalo",
+                            "Wesyleyan Univsersity",
                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
                         )
                       ],
@@ -125,7 +125,7 @@ class GenericProfileUB extends StatelessWidget{
                           padding: EdgeInsets.all(4),
                           width: MediaQuery.of(context).size.width *.45,
                           child: Text(
-                              'Your future comes to life when you set foot on the campus that will become your college home. Complete your application to Ubuff College by Jan 15, visit campus between Jan 15 and April 15, and enroll at Ubuff to receive a one time \$1,000 credit towards your first-year Ubuff tuition. We think experiencing life at UBuff in person is just that important.'
+                              'Your future comes to life when you set foot on the campus that will become your college home. Complete your application to Wes College by Jan 15, visit campus between Jan 15 and April 15, and enroll at Wes to receive a one time \$1,000 credit towards your first-year Wes tuition. We think experiencing life at Wes in person is just that important.'
 
 
                           ),
@@ -165,7 +165,7 @@ class GenericProfileUB extends StatelessWidget{
                               color: Color(0xffb0929c)
                           ),
                           SizedBox(width: 2,),
-                          Text("ubuff.edu")
+                          Text("wesleyan.edu")
                         ],
                       ),
                       Row(
@@ -184,7 +184,7 @@ class GenericProfileUB extends StatelessWidget{
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("admissions@ ubuff.edu")
+                                    Text("admissions@ wes.edu")
                                   ]
                               ),
                             ),
@@ -206,7 +206,7 @@ class GenericProfileUB extends StatelessWidget{
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("3203 SE WOODSTOCK BLVD PORTLAND, OR 97202")
+                                    Text("2033 SW Cardinal BLVD Middletown, CT 65202")
                                   ]
                               )
                           )
@@ -966,7 +966,7 @@ class ParallaxContainer extends StatelessWidget{
     return Column(
       children: [
         LocationListItem(
-          imageUrl: "assets/images/ubuffsunrise.jpg",
+          imageUrl: "assets/images/wesleyan.jpg",
         ),
       ],
 
@@ -987,11 +987,11 @@ class StudentInsights extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-      color: Color.fromRGBO(139, 149, 170,.8),
+      color: Color.fromRGBO(82,25,39,0.8),
       shape: RoundedRectangleBorder(
         side:BorderSide(
             width:1,
-            color: Color.fromRGBO(139, 149, 170,1)
+            color: Color.fromRGBO(0, 0, 0,1)
         ),
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(0.0),
@@ -1026,7 +1026,7 @@ class StudentInsights extends StatelessWidget{
                       children: [
                         Icon(
                             Icons.star_rounded,
-                            color: Color.fromRGBO(228,228,228,1),
+                            color: Color.fromRGBO(0, 0, 0,1),
                             size: 16),
 
                         Flexible(
@@ -1069,11 +1069,11 @@ class ExecutiveSummary extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-        color: Color.fromRGBO(139, 149, 170,.8),
+        color: Color.fromRGBO(82,25,39,0.8),
         shape: RoundedRectangleBorder(
           side:BorderSide(
               width:1,
-              color: Color.fromRGBO(139, 149, 170,1)
+              color: Color.fromRGBO(51, 51, 51,1)
           ),
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20.0),
@@ -1123,26 +1123,26 @@ class CollegeMantra extends StatelessWidget{
       padding : EdgeInsets.only(left:15.0,top: 5.0, bottom:5.0),
       decoration: BoxDecoration(
         border: Border(
-            left: BorderSide(width: 2 ,color: Color.fromRGBO(139, 149, 170,1),)
+            left: BorderSide(width: 2 ,color: Color.fromRGBO(0, 0, 0,1),)
         ),
       ),
       child: Stack(
           children: [
             Text(mantra ,
               textAlign: TextAlign.left,
-              style: GoogleFonts.gelasio(
+              style: GoogleFonts.literata(
                 fontSize: 30,
                 fontWeight: FontWeight.bold ,
                 foreground: Paint()
                   ..style = PaintingStyle.stroke
                   ..strokeWidth = 2
-                  ..color = Color.fromRGBO(139, 149, 170,1),
+                  ..color = Color.fromRGBO(82,25,39,0.8),
               ),
             ),
 
             Text(mantra ,
               textAlign: TextAlign.left,
-              style: GoogleFonts.gelasio(
+              style: GoogleFonts.literata(
                   fontSize: 30,
                   color: Color(0xffffffff),
                   fontWeight: FontWeight.bold
@@ -1233,7 +1233,7 @@ class LocationListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children:[
                   SizedBox(width: screenWidth * 0.05,),
-                  CollegeMantra(mantra: "Drive your potential and run with the bulls at New York's public powerhouse.")
+                  CollegeMantra(mantra: "Learn to be the change you want to see in the world at Wesleyan.")
                 ]
             ),
             Spacer(),
@@ -1251,8 +1251,8 @@ class LocationListItem extends StatelessWidget {
               children: [
                 ExecutiveSummary(data:
                 [
-                  "The University at Buffalo is a public, comprehensive higher-ed institution in Buffalo, New York.",
-                  "It is considered one of the foremost research institutions in the east, boasting several award-winning programs and programs for its 40-thousand students, staff, and faculty."
+                  "Wesleyan is a coeducational, independent liberal arts and sciences college in Middletown, Connecticut",
+                  "It is considered one of the most impactful liberal arts institutions in the United States, know for its world-famous alumni network."
                 ],
                 ),
                 SizedBox(width:(screenWidth * .05))
