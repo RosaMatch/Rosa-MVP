@@ -144,11 +144,19 @@ class _HomePageState extends State<Home> {
             ),
             ElevatedButton(
               onPressed: () {
-                context.go('/');
+                context.go('/UB_profile');
               },
-              child: const Text('Go to Login'),
+              child: const Text('Go to Ubuff'),
+
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/WES_profile');
+              },
+              child: const Text('Go to WES'),
 
             )
+
           ],
         ),
       ),

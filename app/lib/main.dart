@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rosa/college_profile.dart';
+import 'package:rosa/uBuffProfile.dart';
+import 'package:rosa/wesProfile.dart';
 import 'login.dart';
 import 'constants.dart';
 import 'homepage.dart';
@@ -33,7 +35,15 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/MatchPage1State',
       builder: (context, state) => const MatchPage1(),
-    )
+    ),
+    GoRoute(
+      path: '/UB_profile',
+      builder: (context, state) => const CollegeProfileUB(),
+    ),
+    GoRoute(
+      path: '/WES_profile',
+      builder: (context, state) => const CollegeProfileWES(),
+    ),
   ],
 );
 

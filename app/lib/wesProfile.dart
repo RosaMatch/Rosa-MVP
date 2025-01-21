@@ -6,17 +6,17 @@ import 'package:go_router/go_router.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'constants.dart';
 import 'package:flutter/rendering.dart';
-//////////////////UBUFF
+//////////////////WES
 
-class CollegeProfileUB extends StatefulWidget {
-  const CollegeProfileUB({super.key});
+class CollegeProfileWES extends StatefulWidget {
+  const CollegeProfileWES({super.key});
 
   @override
-  ProfileUB createState() {
-    return ProfileUB();
+  ProfileWES createState() {
+    return ProfileWES();
   }
 }
-class ProfileUB extends State<CollegeProfileUB>{
+class ProfileWES extends State<CollegeProfileWES>{
   @override
   Widget build(BuildContext context){
     double screenWidth = MediaQuery.of(context).size.width;
@@ -33,11 +33,11 @@ class ProfileUB extends State<CollegeProfileUB>{
                     },
                     child: const Icon(
                       Icons.arrow_back_ios,
-                      color: Color.fromRGBO(0, 91, 187,1),
+                      color: Color.fromRGBO(215, 33, 33,.8),
                       size: 32,
                     )
                 ),
-                Text("University at Buffalo"
+                Text("Wesleyan University"
                     , style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
                 ) //CollegeName will be hard coded for now
               ]
@@ -111,7 +111,7 @@ class GenericProfileUB extends StatelessWidget{
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                            "University at Buffalo",
+                            "Wesyleyan Univsersity",
                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
                         )
                       ],
@@ -966,7 +966,7 @@ class ParallaxContainer extends StatelessWidget{
     return Column(
       children: [
         LocationListItem(
-          imageUrl: "assets/images/ubuffsunrise.jpg",
+          imageUrl: "assets/images/wesleyan.jpg",
         ),
       ],
 
@@ -987,11 +987,11 @@ class StudentInsights extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-      color: Color.fromRGBO(0, 91, 187,.8),
+      color: Color.fromRGBO(215, 33, 33,.8),
       shape: RoundedRectangleBorder(
         side:BorderSide(
             width:1,
-            color: Color.fromARGB(255, 7,43,75)
+            color: Color.fromRGBO(0, 0,0,1)
         ),
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(0.0),
@@ -1026,7 +1026,7 @@ class StudentInsights extends StatelessWidget{
                       children: [
                         Icon(
                             Icons.star_rounded,
-                            color: Color.fromRGBO(228,228,228,1),
+                            color: Color.fromRGBO(0,0,0,1),
                             size: 16),
 
                         Flexible(
@@ -1069,11 +1069,11 @@ class ExecutiveSummary extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-        color: Color.fromRGBO(0, 91, 187,.8),
+        color: Color.fromRGBO(215, 33, 33,.8),
         shape: RoundedRectangleBorder(
           side:BorderSide(
               width:1,
-              color: Color.fromARGB(255, 7,43,75)
+              color: Color.fromRGBO(0, 0,0,1)
           ),
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20.0),
@@ -1123,26 +1123,26 @@ class CollegeMantra extends StatelessWidget{
       padding : EdgeInsets.only(left:15.0,top: 5.0, bottom:5.0),
       decoration: BoxDecoration(
         border: Border(
-            left: BorderSide(width: 2 ,color: Color.fromRGBO(0, 91, 187,1),)
+            left: BorderSide(width: 2 ,color: Color.fromRGBO(0, 0, 0,1),)
         ),
       ),
       child: Stack(
           children: [
             Text(mantra ,
               textAlign: TextAlign.left,
-              style: GoogleFonts.gelasio(
+              style: GoogleFonts.literata(
                 fontSize: 30,
                 fontWeight: FontWeight.bold ,
                 foreground: Paint()
                   ..style = PaintingStyle.stroke
                   ..strokeWidth = 2
-                  ..color = Color.fromRGBO(0, 91, 187,1),
+                  ..color = Color.fromRGBO(215, 33, 33,.8),
               ),
             ),
 
             Text(mantra ,
               textAlign: TextAlign.left,
-              style: GoogleFonts.gelasio(
+              style: GoogleFonts.literata(
                   fontSize: 30,
                   color: Color(0xffffffff),
                   fontWeight: FontWeight.bold
