@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:multi_select_flutter/multi_select_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'constants.dart';
 
 class IntakeForm extends StatefulWidget {
@@ -14,21 +14,64 @@ class IntakeForm extends StatefulWidget {
 class Intakes extends State<IntakeForm> {
   final _formKey1 = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
-  final nameController = TextEditingController();
-  final gpaController = TextEditingController();
+  final _formKey3 = GlobalKey<FormState>();
+  final _formKey4 = GlobalKey<FormState>();
+
+  final ValueNotifier<bool> _isForm1Valid = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> _isForm2Valid = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> _isForm3Valid = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> _isForm4Valid = ValueNotifier<bool>(false);
+  final ValueNotifier<int> _currentPageNotifier = ValueNotifier<int>(0);
   final PageController _pageController = PageController();
+
+  final nameController = TextEditingController();
   String? _selectedYear;
-  String? _selectedYearCollege;
-  String? _selectedAspect;
-  String? _selectedImportance;
-  String? _selectedGPAConsider;
-  List<String>? _selectedSchools;
+  String? _thisCycle;
+  final Set<String> _selectedImagesForm2 = {};
+  final Set<String> _selectedImagesForm3 = {};
+  String? _gpaConsideration;
+  final gpaController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _currentPageNotifier.value = _pageController.page?.round() ?? 0;
+    });
+    nameController.addListener(_validateForm1);
+    gpaController.addListener(_validateForm4);
+    _pageController.addListener(() {
+      final currentPage = _pageController.page?.round() ?? 0;
+      _currentPageNotifier.value = currentPage;
+    });
+  }
+
+  void _validateForm1() {
+    _isForm1Valid.value = _formKey1.currentState?.validate() ?? false;
+  }
+
+  void _validateForm2() {
+    _isForm2Valid.value = _formKey2.currentState?.validate() ?? false;
+  }
+
+  void _validateForm3() {
+    _isForm3Valid.value = _formKey3.currentState?.validate() ?? false;
+  }
+
+  void _validateForm4() {
+    _isForm4Valid.value = _formKey4.currentState?.validate() ?? false;
+  }
 
   @override
   void dispose() {
     nameController.dispose();
     gpaController.dispose();
     _pageController.dispose();
+    _isForm1Valid.dispose();
+    _isForm2Valid.dispose();
+    _isForm3Valid.dispose();
+    _isForm4Valid.dispose();
+    _currentPageNotifier.dispose();
     super.dispose();
   }
 
@@ -39,418 +82,699 @@ class Intakes extends State<IntakeForm> {
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 70),
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Hi, I'm Rosa!",
-                    style: TextStyle(
-                        fontSize: 24,
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 140, bottom: 74),
+                  child: Image.asset(
+                    'assets/icons/rosa_icon_circle.png',
+                    height: 160,
+                    width: 160,
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Hi, I'm Rosa!",
+                      style: TextStyle(
+                        fontSize: 36,
                         fontWeight: FontWeight.bold,
-                        color: rosaRedColor),
-                  ),
-                  const Text(
-                    "Nice to meet you. I am your college search companion, ready to help you find, apply, and get you into the school that's right for you!",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  const SizedBox(width: 10, height: 10),
-                  const Divider(
-                    color: rosaRedColor,
-                    thickness: 2,
-                  ),
-                  const SizedBox(width: 20, height: 20),
-                  const Text(
-                    "Let's get to know each other better",
-                    style: TextStyle(fontSize: 24),
-                  ),
-                  const SizedBox(width: 20, height: 20),
-                  Form(
-                    key: _formKey1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const Text(
-                          "What is your preferred name?",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        TextFormField(
-                          key: const Key('name'),
-                          controller: nameController,
-                          decoration: const InputDecoration(
-                            hintText: 'Enter your preferred name',
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(width: 15, height: 15),
-                        const Text(
-                          "What year are you in school?",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        DropdownButtonFormField<String>(
-                          key: const Key('year'),
-                          value: _selectedYear,
-                          decoration: const InputDecoration(
-                            hintText: 'Select your year in school',
-                          ),
-                          items: <String>[
-                            'Freshman(9th)',
-                            'Sophomore(10th)',
-                            'Junior(11th)',
-                            'Senior(12th)',
-                            'I am a transfer student',
-                            'Other'
-                          ].map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              _selectedYear = newValue;
-                            });
-                          },
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please select a year';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(width: 15, height: 15),
-                        if (_selectedYear == 'I am a transfer student') ...[
-                          const Text(
-                            "What year are you in college?",
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          DropdownButtonFormField<String>(
-                            key: const Key('collegeYear'),
-                            value: _selectedYearCollege,
-                            decoration: const InputDecoration(
-                              hintText: 'Select your year in college',
-                            ),
-                            items: <String>['1st', '2nd', '3rd', '4th', 'Other']
-                                .map((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                _selectedYearCollege = newValue;
-                              });
-                            },
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please select a year';
-                              }
-                              return null;
-                            },
-                          ),
-                          const SizedBox(width: 15, height: 15),
-                        ],
-                        const Text(
-                          "What aspect of your application would you like to work on together?",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        DropdownButtonFormField<String>(
-                          key: const Key('aspect'),
-                          value: _selectedAspect,
-                          decoration: const InputDecoration(
-                            hintText: 'Select an aspect of your application',
-                          ),
-                          items: <String>[
-                            'Essays',
-                            'Funding(Scholarships, Financial Aid)',
-                            'Understanding my College Fit',
-                            'All of it!',
-                            'Not too sure...'
-                          ].map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              _selectedAspect = newValue;
-                            });
-                          },
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please select an aspect';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(width: 15, height: 15),
-                        const Text(
-                          "What is most important to you while researching colleges?",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        DropdownButtonFormField<String>(
-                          key: const Key('importance'),
-                          value: _selectedImportance,
-                          decoration: const InputDecoration(
-                            hintText: 'Select what is most important to you',
-                          ),
-                          items: <String>[
-                            'COA(Cost of Attendance)',
-                            'Research Opportunities',
-                            'Career Outlook',
-                            'Study Abroad Opportunities',
-                            'Cirriculum Style',
-                            'Location',
-                            'Sports',
-                            'Community Engagement',
-                            'Volunteerism',
-                            'Academic Programs'
-                          ].map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              _selectedImportance = newValue;
-                            });
-                          },
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please select an aspect';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(width: 15, height: 15),
-                        const Text(
-                          'Would you like to have us consider your GPA in matching and other in-app experiences?',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        DropdownButtonFormField<String>(
-                          key: const Key('gpaConsider'),
-                          value: _selectedGPAConsider,
-                          decoration: const InputDecoration(
-                            hintText: 'Select Yes or No',
-                          ),
-                          items: <String>['Yes', 'No'].map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              _selectedGPAConsider = newValue;
-                            });
-                          },
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please select an option';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(width: 15, height: 15),
-                        if (_selectedGPAConsider == 'Yes') ...[
-                          const Text(
-                            'What is your GPA?',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          TextFormField(
-                            key: const Key('gpa'),
-                            controller: gpaController,
-                            decoration: const InputDecoration(
-                              hintText: 'Enter your GPA',
-                            ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your GPA';
-                              }
-                              return null;
-                            },
-                          ),
-                        ],
-                        const SizedBox(width: 20, height: 20),
-                        ElevatedButton(
-                          onPressed: () {
-                            if (_formKey1.currentState!.validate()) {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    content: Text(
-                                      'Name: ${nameController.text}\n'
-                                      'Year: $_selectedYear\n'
-                                      'College Year: $_selectedYearCollege\n'
-                                      'Aspect: $_selectedAspect\n'
-                                      'Importance: $_selectedImportance\n'
-                                      'GPA Consider: $_selectedGPAConsider\n'
-                                      'GPA: ${gpaController.text}\n',
-                                      style: const TextStyle(fontSize: 16),
-                                    ),
-                                  );
-                                },
-                              );
-                              _pageController.nextPage(
-                                duration: const Duration(milliseconds: 1000),
-                                curve: Curves.easeInOut,
-                              );
-                            }
-                          },
-                          child: const Icon(
-                            Icons.next_plan,
-                            size: 24,
-                            color: rosaRedColor,
-                          ),
-                        ),
-                      ],
+                        color: rosaRedColor,
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                    SizedBox(width: 30, height: 30),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      padding: const EdgeInsets.all(16.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(5, 5), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text:
+                                  "I am your college search companion, ready to help you find, apply, and get you into ",
+                              style: TextStyle(
+                                  fontSize: 16, color: Colors.black38),
+                            ),
+                            TextSpan(
+                              text: "the school that's right for you!",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black38,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-
           SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(width: 40, height: 40),
                 const Text(
-                  "College Match",
+                  "1/4",
                   style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: rosaRedColor),
                 ),
-                SizedBox(width: 10, height: 10),
+                SizedBox(width: 40, height: 40),
                 const Text(
-                  "Let's begin by finding a few schools that fit you.",
-                  style: TextStyle(fontSize: 12),
+                  "Let's get to know each other better",
+                  style: TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                      color: rosaRedColor),
                 ),
-                const SizedBox(width: 10, height: 10),
+                const SizedBox(width: 40, height: 40),
                 Form(
-                  key: _formKey2,
+                  key: _formKey1,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       const Text(
-                        "But first, are there any schools that you are currently interested in?",
-                        style: TextStyle(fontSize: 12),
+                        "What is your preferred name?",
+                        style: TextStyle(fontSize: 16),
                       ),
                       const SizedBox(width: 10, height: 10),
-                      MultiSelectDialogField(
-                        items: [
-                          MultiSelectItem("School 1", "School 1"),
-                          MultiSelectItem("School 2", "School 2"),
-                          MultiSelectItem("School 3", "School 3"),
-                          MultiSelectItem("School 4", "School 4"),
-                          MultiSelectItem("School 5", "School 5"),
-                        ],
-                        title: const Text("Schools"),
-                        selectedColor: rosaRedColor,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: const BorderRadius.all(Radius.circular(4)),
-                          border: Border.all(
-                            color: Colors.grey,
-                            width: 1,
+                      TextFormField(
+                        key: const Key('name'),
+                        controller: nameController,
+                        decoration: const InputDecoration(
+                          hintText: 'Enter Preferred Name here',
+                          fillColor: Colors.white,
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
                           ),
                         ),
-                        buttonIcon: const Icon(
-                          Icons.school,
-                          color: Colors.grey,
-                        ),
-                        buttonText: const Text(
-                          "Select Schools",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
-                          ),
-                        ),
-                        searchable: true,
-                        onConfirm: (results) {
-                          setState(() {
-                            _selectedSchools = results.cast<String>();
-                          });
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your preferred name';
+                          }
+                          return null;
                         },
-                        validator: (values) {
-                          if (values == null || values.isEmpty) {
-                            return 'Please select at least one school';
+                        onChanged: (value) {
+                          _validateForm1();
+                        },
+                      ),
+                      const SizedBox(width: 40, height: 40),
+                      const Text(
+                        "What year are you in school?",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(width: 10, height: 10),
+                      DropdownButtonFormField<String>(
+                        key: const Key('year'),
+                        value: _selectedYear,
+                        decoration: const InputDecoration(
+                          hintText: 'Select Year',
+                          fillColor: Colors.white,
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                          ),
+                        ),
+                        items: <String>[
+                          'Freshman(9th)',
+                          'Sophomore(10th)',
+                          'Junior(11th)',
+                          'Senior(12th)',
+                          'I am a transfer student',
+                          'Other'
+                        ].map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _selectedYear = newValue;
+                          });
+                          _validateForm1();
+                        },
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please select a year';
                           }
                           return null;
                         },
                       ),
-                      const SizedBox(width: 15, height: 15),
+                      const SizedBox(width: 40, height: 40),
                       const Text(
-                        "Respond to the prompts on the following page honestly. Your responses will influence your in-app counseling experience.",
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        "Do you plan on applying this cycle?",
+                        style: TextStyle(fontSize: 16),
                       ),
                       const SizedBox(width: 10, height: 10),
-                      const Text(
-                        "This questionare should take about 10 minutes to complete, so consider each question for a few moments before answering.",
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
-                      ),
-                      const SizedBox(width: 10, height: 10),
-                      const Text(
-                        "Colleges will never be able to see your responses.",
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey),
-                      ),
-                      const SizedBox(width: 15, height: 15),
-                      ElevatedButton(
-                        onPressed: () {
-                          if (_formKey2.currentState!.validate()) {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  content: Text(
-                                    'Schools: $_selectedSchools\n',
-                                    style: const TextStyle(fontSize: 16),
-                                  ),
-                                );
-                              },
-                            );
-                            _pageController.nextPage(
-                              duration: const Duration(milliseconds: 1000),
-                              curve: Curves.easeInOut,
-                            );
-                          }
-                        },
-                        child: const Icon(
-                          Icons.next_plan,
-                          size: 24,
-                          color: rosaRedColor,
+                      DropdownButtonFormField<String>(
+                        key: const Key('thisCycle'),
+                        value: _thisCycle,
+                        decoration: const InputDecoration(
+                          hintText: 'Select Yes or No',
+                          fillColor: Colors.white,
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                          ),
                         ),
+                        items: <String>['Yes', 'No'].map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _thisCycle = newValue;
+                          });
+                          _validateForm1();
+                        },
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please select an option';
+                          }
+                          return null;
+                        },
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
-          // 
-          // 
-          // START HERE FOR OTHER FORM PAGES!!!
-          //  | | |
-          //  | | |
-          //  V V V
-          SingleChildScrollView(),
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(width: 40, height: 40),
+                const Text(
+                  "2/4",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: rosaRedColor),
+                ),
+                SizedBox(width: 40, height: 40),
+                ValueListenableBuilder<TextEditingValue>(
+                  valueListenable: nameController,
+                  builder: (context, value, child) {
+                    return Text(
+                      "So ${value.text}, how can I help?",
+                      style: TextStyle(
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
+                          color: rosaRedColor),
+                    );
+                  },
+                ),
+                Form(
+                    key: _formKey2,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          GridView.count(
+                            crossAxisCount: 2,
+                            shrinkWrap: true,
+                            children: List.generate(6, (index) {
+                              final iconData = [
+                                essayIcon,
+                                fundingIcon,
+                                researchSchoolsIcon,
+                                outreachIcon,
+                                fitfactorIcon,
+                                everythingIcon,
+                              ][index];
+                              final iconText = [
+                                'Essay Writing',
+                                'Funding',
+                                'Researching',
+                                'College Outreach',
+                                'Fit Factor',
+                                'Everything!',
+                              ][index];
+                              return GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    if (_selectedImagesForm2
+                                        .contains(iconText)) {
+                                      _selectedImagesForm2.remove(iconText);
+                                    } else {
+                                      _selectedImagesForm2.add(iconText);
+                                    }
+                                    _validateForm2();
+                                  });
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(6.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                      color: _selectedImagesForm2
+                                              .contains(iconText)
+                                          ? rosaRedColor
+                                          : Colors.grey,
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        iconData,
+                                        size: iconSize,
+                                        color: _selectedImagesForm2
+                                                .contains(iconText)
+                                            ? Colors.black
+                                            : iconColor,
+                                      ),
+                                      const SizedBox(height: 8.0),
+                                      Text(
+                                        iconText,
+                                        style: TextStyle(
+                                          color: _selectedImagesForm2
+                                                  .contains(iconText)
+                                              ? Colors.black
+                                              : iconColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }),
+                          ),
+                        ]))
+              ],
+            ),
+          ),
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(width: 40, height: 40),
+                const Text(
+                  "3/4",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: rosaRedColor),
+                ),
+                SizedBox(width: 40, height: 40),
+                const Text(
+                  "What is most important to you while researching colleges?",
+                  style: TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                      color: rosaRedColor),
+                ),
+                const SizedBox(width: 40, height: 40),
+                Form(
+                    key: _formKey3,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                              padding: const EdgeInsets.all(8.0),
+                              decoration: BoxDecoration(
+                                color: rosaRedColor,
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              child: SizedBox(
+                                height: 550,
+                                child: SingleChildScrollView(
+                                  child: GridView.count(
+                                    crossAxisCount: 2,
+                                    shrinkWrap: true,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    children: List.generate(10, (index) {
+                                      final iconData = [
+                                        COAIcon,
+                                        researchIcon,
+                                        careerIcon,
+                                        sportsIcon,
+                                        locationIcon,
+                                        volunteerIcon,
+                                        communityIcon,
+                                        academicIcon,
+                                        curriculumIcon,
+                                        studyAbroadIcon,
+                                      ][index];
+                                      final iconText = [
+                                        'Cost',
+                                        'Reasearch',
+                                        'Career',
+                                        'Sports',
+                                        'Location',
+                                        'Volunteer',
+                                        'Community',
+                                        'Academics',
+                                        'Curriculum',
+                                        'Study Abroad',
+                                      ][index];
+                                      return GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            if (_selectedImagesForm3
+                                                .contains(iconText)) {
+                                              _selectedImagesForm3
+                                                  .remove(iconText);
+                                            } else {
+                                              _selectedImagesForm3
+                                                  .add(iconText);
+                                            }
+                                            _validateForm3();
+                                          });
+                                        },
+                                        child: Container(
+                                          margin: const EdgeInsets.all(8.0),
+                                          padding: const EdgeInsets.all(6.0),
+                                          decoration: BoxDecoration(
+                                            color: rosaRedColor,
+                                            border: Border.all(
+                                              color: _selectedImagesForm3
+                                                      .contains(iconText)
+                                                  ? Colors.black
+                                                  : iconColor2,
+                                              width: 2,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                iconData,
+                                                size: iconSize,
+                                                color: _selectedImagesForm3
+                                                        .contains(iconText)
+                                                    ? Colors.black
+                                                    : iconColor2,
+                                              ),
+                                              const SizedBox(height: 8.0),
+                                              Text(
+                                                iconText,
+                                                style: TextStyle(
+                                                  color: _selectedImagesForm3
+                                                          .contains(iconText)
+                                                      ? Colors.black
+                                                      : iconColor2,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                                  ),
+                                ),
+                              ))
+                        ]))
+              ],
+            ),
+          ),
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              const SizedBox(width: 40, height: 40),
+              const Text(
+                "4/4",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: rosaRedColor),
+              ),
+              SizedBox(width: 40, height: 40),
+              const Text(
+                "Wrapping things up...",
+                style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: rosaRedColor),
+              ),
+              const SizedBox(width: 40, height: 40),
+              Form(
+                key: _formKey4,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const Text(
+                      "Would you like to have us consider your GPA in matching and other in-app experiencs?",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    const SizedBox(width: 20, height: 20),
+                    DropdownButtonFormField(
+                      key: const Key('gpaConsideration'),
+                      value: _gpaConsideration,
+                      decoration: const InputDecoration(
+                        hintText: 'Select Yes or No',
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ),
+                      ),
+                      items: <String>['Yes', 'No'].map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _gpaConsideration = newValue;
+                        });
+                        _validateForm4();
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please select an option';
+                        }
+                        return null;
+                      },
+                    ),
+                    if (_gpaConsideration == 'Yes') ...[
+                      const SizedBox(width: 40, height: 40),
+                      const Text(
+                        "What is your current GPA?",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(width: 10, height: 10),
+                      TextFormField(
+                        key: const Key('gpa'),
+                        controller: gpaController,
+                        decoration: const InputDecoration(
+                          hintText: 'Enter your GPA here',
+                          fillColor: Colors.white,
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your GPA';
+                          }
+                          return null;
+                        },
+                        onChanged: (value) {
+                          _validateForm4();
+                        },
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ]),
+          ),
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 140, bottom: 74),
+                  child: Image.asset(
+                    'assets/icons/rosa_icon_circle.png',
+                    height: 160,
+                    width: 160,
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Thank you for sharing!",
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        color: rosaRedColor,
+                      ),
+                    ),
+                    SizedBox(width: 30, height: 30),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      padding: const EdgeInsets.all(16.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(5, 5), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "We are processing your information...",
+                              style: TextStyle(
+                                  fontSize: 16, color: Colors.black38),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 30, height: 30),
+                    ElevatedButton(
+                      onPressed: () {
+                        GoRouter.of(context).go('/MatchPage1State');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: rosaRedColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                      ),
+                      child: const Text(
+                        'Continue to Matches',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: Stack(
+        children: [
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: ValueListenableBuilder<int>(
+                valueListenable: _currentPageNotifier,
+                builder: (context, pageIndex, child) {
+                  if (pageIndex == 5) {
+                    return SizedBox.shrink(); // Hide the button on page 5
+                  }
+                  bool isButtonEnabled;
+                  switch (pageIndex) {
+                    case 0:
+                      isButtonEnabled = true;
+                      break;
+                    case 1:
+                      isButtonEnabled = _isForm1Valid.value;
+                      break;
+                    case 2:
+                      isButtonEnabled = _isForm2Valid.value;
+                      break;
+                    case 3:
+                      isButtonEnabled = _isForm3Valid.value;
+                      break;
+                    case 4:
+                      isButtonEnabled = _isForm4Valid.value;
+                      break;
+                    case 5:
+                      isButtonEnabled = false;
+                      break;
+                    default:
+                      isButtonEnabled = false;
+                  }
+
+                  return FloatingActionButton(
+                    onPressed: isButtonEnabled
+                        ? () {
+                            // Perform validation and page change here
+                            if (_currentPageNotifier.value == 1) {
+                              _validateForm1(); // Validate form 1
+                            } else if (_currentPageNotifier.value == 2) {
+                              _validateForm2(); // Validate form 2
+                            } else if (_currentPageNotifier.value == 3) {
+                              _validateForm3(); // Validate form 3
+                            } else if (_currentPageNotifier.value == 4) {
+                              _validateForm4(); // Validate form 4
+                            }
+
+                            // Ensure that the page is updated based on the validation state
+                            setState(() {
+                              // Trigger rebuild to refresh the button state after validation
+                            });
+
+                            // Move to the next page if the form is valid
+                            if (isButtonEnabled) {
+                              _pageController.nextPage(
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.easeIn,
+                              );
+                            }
+                          }
+                        : null,
+                    backgroundColor: Colors.white,
+                    shape: CircleBorder(),
+                    child: Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      color: rosaRedColor,
+                      size: 24,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
