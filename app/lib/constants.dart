@@ -87,4 +87,4 @@ const Icon studyAbroadIcon = Icon(Icons.explore_outlined, color: Color.fromRGBO(
 
 //STRINGS
 
-const String testCollegeProfilePath = '/testcollege_profile';
+const String testCollegeProfileRoute = '/testcollege_profile';
