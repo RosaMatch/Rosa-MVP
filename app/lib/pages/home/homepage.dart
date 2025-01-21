@@ -1,85 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'constants.dart';
+import '../../constants/constants.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
-  @override
-  State<Home> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<Home> {
-  int currentPage = 0;
+class HomePage extends StatelessWidget {
+  const HomePage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-                title: Row(
-                  children: [
-                    Image.asset(
-                      'assets/icons/rosa_icon.png',
-                      width: 44,
-                      alignment: Alignment.centerLeft,
-                    ),
-                  ],
-                ),
-                toolbarHeight: 44,
-                backgroundColor: rosaRedColor,
-              ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) {
-          setState(() {
-            currentPage = value;
-          });
-        },
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: textFormBorderColor,
-        selectedItemColor: rosaRedColor,
-        unselectedItemColor: inactiveRedColor,
-        currentIndex: currentPage,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.lightbulb),
-            label: "Insights",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: "List",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
-      ),
-      body: Center(
+    return Center(
         child: ListView(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-              child: Container(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 70),
+              child: SizedBox(
                 height: 70,
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
+                    side: BorderSide(
+                      color: textFormBorderColor,
+                      width: 1,
+                    )
                   ),
                   color: Colors.white,
 
                   child: Row(
                     children: [
                       CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/juniorpfp.png'),
+                        backgroundImage: AssetImage(juniorPfpPath),
                         radius: 31,
                       ),
                       Padding(
                         padding: EdgeInsets.all(5),
                         child: Text(
-                          'Welcome Back, Junior',
+                          'Welcome, Junior',
                           style: TextStyle(
                             color: rosaRedColor,
                             fontWeight: FontWeight.bold,
@@ -104,13 +60,79 @@ class _HomePageState extends State<Home> {
 
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                  side: BorderSide(
+                    color: rosaRedColor,
+                  )
+                ),
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(5),
+                      child: Text(
+                        'Upcoming Dates',
+                        style: TextStyle(
+                          color: rosaRedColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
+                      )
+                    ),
+                    
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 30),
+                      child: Container(
+                        color: textFormBorderColor,
+                        height: 80,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 5),
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            padding: EdgeInsets.symmetric(horizontal: 5),
+                            children: [
+                              UpdateCard(
+                                alertType: 'Early Decision',
+                                date: '11/15',
+                                iconRoute: 'assets/icons/reed_icon.png',
+                                collegeName: 'Reed College',
+                              ),
+
+                              UpdateCard(
+                                alertType: 'Early Decision',
+                                date: '11/15',
+                                iconRoute: 'assets/icons/wesleyan_icon.png',
+                                collegeName: 'Wesleyan University',
+                              ),
+
+                              UpdateCard(
+                                alertType: 'Undergrad Deadline',
+                                date: '1/15',
+                                iconRoute: 'assets/icons/hunter_icon.jpg',
+                                collegeName: 'CUNY Hunter College',
+                              ),
+                            ]
+                          )
+                        )
+                      )
+                    ),
+                  ],
+                )
+              )
+            ),
+
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: Container(
+                height: 220,
                 child: Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
+                    borderRadius: BorderRadius.circular(25),
                     side: BorderSide(
-                      color: rosaRedColor,
-                      
+                      color: textFormBorderColor,
+                      width: 1,
                     )
                   ),
                   color: Colors.white,
@@ -119,45 +141,34 @@ class _HomePageState extends State<Home> {
                       Padding(
                         padding: EdgeInsets.all(5),
                         child: Text(
-                          'Upcoming Dates',
+                          'Agenda',
                           style: TextStyle(
                             color: rosaRedColor,
                             fontWeight: FontWeight.bold,
-                            fontSize: 30,
+                            fontSize: 20,
                           ),
                         )
                       ),
                       
                       Padding(
-                        padding: EdgeInsets.only(bottom: 30),
+                        padding: EdgeInsets.only(bottom: 10),
                         child: Container(
                           color: textFormBorderColor,
-                          height: 80,
+                          height: 140,
                           child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 5),
+                            padding: EdgeInsets.symmetric(vertical: 10),
                             child: ListView(
                               scrollDirection: Axis.horizontal,
                               padding: EdgeInsets.symmetric(horizontal: 5),
                               children: [
-                                UpdateCard(
-                                  alertType: 'Early Decision',
-                                  date: '11/15',
-                                  iconRoute: 'assets/icons/reed_icon.png',
-                                  collegeName: 'Reed College',
+                                AgendaCard(
+                                  imagePath: 'assets/images/introduction_agenda_picture.jpeg',
+                                  title: 'Introduction'
                                 ),
 
-                                UpdateCard(
-                                  alertType: 'Early Decision',
-                                  date: '11/15',
-                                  iconRoute: 'assets/icons/wesleyan_icon.png',
-                                  collegeName: 'Wesleyan University',
-                                ),
-
-                                UpdateCard(
-                                  alertType: 'Undergrad Deadline',
-                                  date: '2/1',
-                                  iconRoute: 'assets/icons/hunter_icon.jpg',
-                                  collegeName: 'CUNY Hunter College',
+                                AgendaCard(
+                                  imagePath: 'assets/images/myCollegeFit.jpg',
+                                  title: 'My College Fit',
                                 ),
                               ]
                             )
@@ -178,6 +189,10 @@ class _HomePageState extends State<Home> {
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
+                    side: BorderSide(
+                      color: textFormBorderColor,
+                      width: 1,
+                    )
                   ),
                   color: Colors.white,
                   child: Column(
@@ -185,7 +200,7 @@ class _HomePageState extends State<Home> {
                       Padding(
                         padding: EdgeInsets.all(5),
                         child: Text(
-                          'Explore Further',
+                          'Your Matches',
                           style: TextStyle(
                             color: rosaRedColor,
                             fontWeight: FontWeight.bold,
@@ -205,10 +220,11 @@ class _HomePageState extends State<Home> {
                               scrollDirection: Axis.horizontal,
                               padding: EdgeInsets.symmetric(horizontal: 5),
                               children: [
+
                                 CollegeCard(
                                   imagePath: 'assets/images/wesleyan.jpg',
                                   name: 'Wesleyan College',
-                                  route: '/WES_profile',
+                                  route: wesProfileRoute,
                                 ),
 
                                 CollegeCard(
@@ -220,13 +236,13 @@ class _HomePageState extends State<Home> {
                                 CollegeCard(
                                   imagePath: 'assets/images/hunterCollegeGobrrrbeepbeep.jpg',
                                   name: 'CUNY Hunter College',
-                                  route: '/H_profile',
+                                  route: hunterProfileRoute,
                                 ),
 
                                 CollegeCard(
                                   imagePath: 'assets/images/handsUbuff.jpg',
                                   name: 'University of Buffalo',
-                                  route: '/UB_profile',
+                                  route: uBuffProfileRoute,
                                 ),
                               ]
                             )
@@ -290,11 +306,9 @@ class _HomePageState extends State<Home> {
 
           ],
         ),
-      ),
-    );
+      );
   }
 }
-
 
 // TO DO: Currently, the InkWell is drawn at the end of the stack. In the future,
 // refactoring to make this more readable may be needed.
@@ -466,4 +480,93 @@ class UpdateCard extends StatelessWidget {
       )
     );
   }
+}
+
+class AgendaCard extends StatelessWidget {
+  const AgendaCard({
+    super.key,
+    required this.imagePath,
+    required this.title,
+  });
+
+  final String imagePath;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Stack(
+            children: [
+
+              Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(imagePath),
+                    fit: BoxFit.fitHeight,
+                  ),
+                  border: Border.all(
+                    color: inactiveRedColor,
+                    width: 2,
+                  )
+                  //borderRadius: BorderRadius.circular(25),
+                ),
+              ),
+
+              Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                  //borderRadius: BorderRadius.circular(25),
+                  color: Colors.transparent,
+                ),
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(25)),
+                    color: Colors.white,
+                    border: Border.all(
+                      color: inactiveRedColor,
+                      width: 2,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      right: 15,
+                      left: 5,
+                      top: 5,
+                      bottom: 5,
+                    ),
+                    child: Text(
+                      title,
+                      style: const TextStyle(
+                        color: rosaRedColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 10,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              SizedBox(
+                height: 150,
+                width: 150,
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      //context.go(route);
+                    },
+                    splashColor: rosaRedSplashColor,
+                  )
+                )
+              )
+            ],
+      ),
+    );
+  }
+
 }

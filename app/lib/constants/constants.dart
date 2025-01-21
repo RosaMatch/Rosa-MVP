@@ -3,27 +3,21 @@ import 'package:google_fonts/google_fonts.dart';
 
 //COLORS
 const Color backgroundColorCream1 = Color.fromRGBO(238, 242, 232, 1);
+const Color backgroundColorCream2 = Color.fromRGBO(208, 198, 188, 1);
+const Color backgroundColorCream3 = Color.fromRGBO(243,252, 250, 1);
 const Color rosaRedColor = Color.fromRGBO(82, 25, 39, 1);
 const Color rosaRedSplashColor = Color.fromRGBO(82, 25, 39, 0.3);
 const Color textFormBorderColor = Color.fromRGBO(227, 227, 210, 1);
 const Color inactiveRedColor = Color.fromRGBO(176, 146, 156, 1);
 const Color activeRedColor = Color.fromRGBO(108, 86, 92, 1);
-const Color backgroundColorCream2 = Color.fromRGBO(208, 198, 188, 1);
 const Color dividerColor = Color.fromRGBO(176, 146, 156, 1);
 
 //const Size loginButtonSize = Size(300, 30);
 
 //Styles
 
-// const TextStyle mainTextStyle = TextStyle(
-//   color: Colors.white,
-//   decoration: TextDecoration()
-// );
-
 const ButtonStyle loginButtonStyle = ButtonStyle(
   backgroundColor: WidgetStatePropertyAll(Colors.white),
-  //textStyle: WidgetStatePropertyAll(mainTextStyle),
-  //maximumSize: WidgetStatePropertyAll(loginButtonSize),
 );
 
 //Themes
@@ -31,10 +25,6 @@ const AppBarTheme appBarTheme = AppBarTheme(
   backgroundColor: rosaRedColor,
   toolbarHeight: 50,
 );
-
-// const BottomAppBarTheme bottomAppBarTheme = BottomAppBarTheme(
-//   color: interactableBackgroundColor,
-// );
 
 const IconThemeData iconThemeData = IconThemeData(
   color: Colors.white,
@@ -45,7 +35,6 @@ ThemeData appTheme = ThemeData(
   scaffoldBackgroundColor: backgroundColorCream1,
   textTheme: GoogleFonts.kantumruyProTextTheme(),
   appBarTheme: appBarTheme,
-  //bottomAppBarTheme: bottomAppBarTheme,
   dividerColor: dividerColor,
   iconTheme: iconThemeData,
 );
@@ -90,3 +79,8 @@ const IconData studyAbroadIcon = Icons.explore_outlined;
 //STRINGS
 
 const String testCollegeProfileRoute = '/testcollege_profile';
+const String uBuffProfileRoute = '/UB_profile';
+const String wesProfileRoute = '/WES_profile';
+const String hunterProfileRoute = '/H_profile';
+const String juniorPfpPath = 'assets/images/juniorpfp.png';
+const String rosaIconPath = 'assets/icons/rosa_icon.png';

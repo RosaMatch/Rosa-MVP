@@ -1,13 +1,6 @@
-import 'dart:ffi';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:multi_select_flutter/multi_select_flutter.dart';
-import 'constants.dart';
-import 'package:flutter/rendering.dart';
-
-
 
 // For college profile Ui, the information cannot be hardcoded so I will try to make this as general as possible
 
