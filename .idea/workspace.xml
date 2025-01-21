@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6adb9a23-71e5-424d-9a9a-6856ff561602" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/assets/images/hunterColllege.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/lib/hunterProfile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/college_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/college_profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/uBuffProfile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/uBuffProfile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/wesProfile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/wesProfile.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Julianj22&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RosaMatch/Rosa-MVP.git&quot;,
+    &quot;accountId&quot;: &quot;308d9179-cd6d-407a-801d-eaa8e0438941&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2rkAN5Jw1xNyHxFKX0TeKQW1Q40" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;App Engine DevAppServer.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Dart Command Line App.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Flutter.main.dart">
+    <configuration name="Unnamed" type="AppEngineRunConfiguration" factoryName="App Engine DevAppServer" nameIsGenerated="true">
+      <module name="Rosa-MVP" />
+      <setting name="serverAddress" value="" />
+      <setting name="sdkPath" value="" />
+      <setting name="serverPort" value="" />
+      <setting name="vmArgs" value="" />
+      <setting name="warPath" value="" />
+      <setting name="sync" value="true" />
+      <setting name="disableUpdateCheck" value="false" />
+      <method v="2">
+        <option name="AppEngine.Gradle.BeforeRunTask" enabled="true" tasks=":assemble" />
+      </method>
+    </configuration>
+    <configuration default="true" type="AppEngineRunConfiguration" factoryName="App Engine DevAppServer">
+      <module name="" />
+      <setting name="serverAddress" value="" />
+      <setting name="sdkPath" value="" />
+      <setting name="serverPort" value="" />
+      <setting name="vmArgs" value="" />
+      <setting name="warPath" value="" />
+      <setting name="sync" value="false" />
+      <setting name="disableUpdateCheck" value="false" />
+      <method v="2">
+        <option name="AppEngine.Gradle.BeforeRunTask" enabled="true" tasks=":assemble" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="CompoundRunConfigurationType">
+      <toRun name="Unnamed" type="DartCommandLineRunConfigurationType" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/app/lib/login.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/app/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="App Engine DevAppServer.Unnamed" />
+      <item itemvalue="Compound.Unnamed" />
+      <item itemvalue="Dart Command Line App.Unnamed" />
+      <item itemvalue="Flutter.main.dart" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6adb9a23-71e5-424d-9a9a-6856ff561602" name="Changes" comment="" />
+      <created>1737092656273</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1737092656273</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

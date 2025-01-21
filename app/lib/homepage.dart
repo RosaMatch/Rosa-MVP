@@ -208,7 +208,7 @@ class _HomePageState extends State<Home> {
                                 CollegeCard(
                                   imagePath: 'assets/images/wesleyan.jpg',
                                   name: 'Wesleyan College',
-                                  route: testCollegeProfileRoute,
+                                  route: '/WES_profile',
                                 ),
 
                                 CollegeCard(
@@ -220,13 +220,13 @@ class _HomePageState extends State<Home> {
                                 CollegeCard(
                                   imagePath: 'assets/images/hunterCollegeGobrrrbeepbeep.jpg',
                                   name: 'CUNY Hunter College',
-                                  route: testCollegeProfileRoute,
+                                  route: '/H_profile',
                                 ),
 
                                 CollegeCard(
                                   imagePath: 'assets/images/handsUbuff.jpg',
                                   name: 'University of Buffalo',
-                                  route: testCollegeProfileRoute,
+                                  route: '/UB_profile',
                                 ),
                               ]
                             )
@@ -278,6 +278,13 @@ class _HomePageState extends State<Home> {
                 context.go('/WES_profile');
               },
               child: const Text('Go to WES'),
+
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/H_profile');
+              },
+              child: const Text('Go to Hunter'),
 
             )
 

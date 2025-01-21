@@ -6,17 +6,17 @@ import 'package:go_router/go_router.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'constants.dart';
 import 'package:flutter/rendering.dart';
-//////////////////UBUFF
+//////////////////HUNTER
 
-class CollegeProfileUB extends StatefulWidget {
-  const CollegeProfileUB({super.key});
+class CollegeProfileH extends StatefulWidget {
+  const CollegeProfileH({super.key});
 
   @override
-  ProfileUB createState() {
-    return ProfileUB();
+  ProfileH createState() {
+    return ProfileH();
   }
 }
-class ProfileUB extends State<CollegeProfileUB>{
+class ProfileH extends State<CollegeProfileH>{
   @override
   Widget build(BuildContext context){
     double screenWidth = MediaQuery.of(context).size.width;
@@ -37,7 +37,7 @@ class ProfileUB extends State<CollegeProfileUB>{
                       size: 32,
                     )
                 ),
-                Text("University at Buffalo"
+                Text("CUNY Hunter College"
                     , style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
                 ) //CollegeName will be hard coded for now
               ]
@@ -51,7 +51,7 @@ class ProfileUB extends State<CollegeProfileUB>{
                   ParallaxContainer(),
                   Divider(color: Color(0xffbec0cb)),
                   SizedBox(height: 15,),
-                  GenericProfileUB(admissionsData: ["lol", "lol", "lol", "lol", "lol" ,"lol", "lol" ,"lol"],),
+                  GenericProfileH(admissionsData: ["lol", "lol", "lol", "lol", "lol" ,"lol", "lol" ,"lol"],),
                   SizedBox(height:20,),
                 ]
             ),
@@ -64,8 +64,8 @@ class ProfileUB extends State<CollegeProfileUB>{
 
 }
 
-class GenericProfileUB extends StatelessWidget{
-  const GenericProfileUB({
+class GenericProfileH extends StatelessWidget{
+  const GenericProfileH({
     super.key,
     required this.admissionsData,
   });
@@ -125,7 +125,7 @@ class GenericProfileUB extends StatelessWidget{
                           padding: EdgeInsets.all(4),
                           width: MediaQuery.of(context).size.width *.45,
                           child: Text(
-                              'Your future comes to life when you set foot on the campus that will become your college home. Complete your application to Ubuff College by Jan 15, visit campus between Jan 15 and April 15, and enroll at Ubuff to receive a one time \$1,000 credit towards your first-year Ubuff tuition. We think experiencing life at UBuff in person is just that important.'
+                              'Your future comes to life when you set foot on the campus that will become your college home. Complete your application to Hunter College by Jan 15, visit campus between Jan 15 and April 15, and enroll at Hunter to receive a one time \$1,000 credit towards your first-year Hunter tuition. We think experiencing life at Hunter in person is just that important.'
 
 
                           ),
@@ -165,7 +165,7 @@ class GenericProfileUB extends StatelessWidget{
                               color: Color(0xffb0929c)
                           ),
                           SizedBox(width: 2,),
-                          Text("ubuff.edu")
+                          Text("hunter.edu")
                         ],
                       ),
                       Row(
@@ -184,7 +184,7 @@ class GenericProfileUB extends StatelessWidget{
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("admissions@ ubuff.edu")
+                                    Text("admissions@ hunter.edu")
                                   ]
                               ),
                             ),
@@ -206,7 +206,7 @@ class GenericProfileUB extends StatelessWidget{
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("3203 SE WOODSTOCK BLVD PORTLAND, OR 97202")
+                                    Text("0332 68th ST NEW YORK, NY 11692")
                                   ]
                               )
                           )
@@ -966,7 +966,7 @@ class ParallaxContainer extends StatelessWidget{
     return Column(
       children: [
         LocationListItem(
-          imageUrl: "assets/images/ubuffsunrise.jpg",
+          imageUrl: "assets/images/hunterColllege.jpg",
         ),
       ],
 
@@ -1130,7 +1130,7 @@ class CollegeMantra extends StatelessWidget{
           children: [
             Text(mantra ,
               textAlign: TextAlign.left,
-              style: GoogleFonts.gelasio(
+              style: GoogleFonts.figtree(
                 fontSize: 30,
                 fontWeight: FontWeight.bold ,
                 foreground: Paint()
@@ -1142,7 +1142,7 @@ class CollegeMantra extends StatelessWidget{
 
             Text(mantra ,
               textAlign: TextAlign.left,
-              style: GoogleFonts.gelasio(
+              style: GoogleFonts.figtree(
                   fontSize: 30,
                   color: Color(0xffffffff),
                   fontWeight: FontWeight.bold
@@ -1233,7 +1233,7 @@ class LocationListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children:[
                   SizedBox(width: screenWidth * 0.05,),
-                  CollegeMantra(mantra: "Drive your potential and run with the bulls at New York's public powerhouse.")
+                  CollegeMantra(mantra: "Never settle for who you were yesterday: at Hunter College, be the you of tomorrow.")
                 ]
             ),
             Spacer(),
@@ -1251,8 +1251,8 @@ class LocationListItem extends StatelessWidget {
               children: [
                 ExecutiveSummary(data:
                 [
-                  "The University at Buffalo is a public, comprehensive higher-ed institution in Buffalo, New York.",
-                  "It is considered one of the foremost research institutions in the east, boasting several award-winning programs and programs for its 40-thousand students, staff, and faculty."
+                  "Hunter College is a public community college is located in New York City, New York.",
+                  "For over 150 years, Hunter College has been opening doors and transforming lives, inspiring students to become leaders and innovators in the classroom, the community and beyond."
                 ],
                 ),
                 SizedBox(width:(screenWidth * .05))

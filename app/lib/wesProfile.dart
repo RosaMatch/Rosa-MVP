@@ -33,7 +33,7 @@ class ProfileWES extends State<CollegeProfileWES>{
                     },
                     child: const Icon(
                       Icons.arrow_back_ios,
-                      color: Color.fromRGBO(215, 33, 33,.8),
+                      color: Color.fromRGBO(82,25,39,0.8),
                       size: 32,
                     )
                 ),
@@ -51,7 +51,7 @@ class ProfileWES extends State<CollegeProfileWES>{
                   ParallaxContainer(),
                   Divider(color: Color(0xffbec0cb)),
                   SizedBox(height: 15,),
-                  GenericProfileUB(admissionsData: ["lol", "lol", "lol", "lol", "lol" ,"lol", "lol" ,"lol"],),
+                  GenericProfileWES(admissionsData: ["lol", "lol", "lol", "lol", "lol" ,"lol", "lol" ,"lol"],),
                   SizedBox(height:20,),
                 ]
             ),
@@ -64,8 +64,8 @@ class ProfileWES extends State<CollegeProfileWES>{
 
 }
 
-class GenericProfileUB extends StatelessWidget{
-  const GenericProfileUB({
+class GenericProfileWES extends StatelessWidget{
+  const GenericProfileWES({
     super.key,
     required this.admissionsData,
   });
@@ -125,7 +125,7 @@ class GenericProfileUB extends StatelessWidget{
                           padding: EdgeInsets.all(4),
                           width: MediaQuery.of(context).size.width *.45,
                           child: Text(
-                              'Your future comes to life when you set foot on the campus that will become your college home. Complete your application to Reed College by Jan 15, visit campus between Jan 15 and April 15, and enroll at Reed to receive a one time \$1,000 credit towards your first-year Ubuff tuition. We think experiencing life at UBuff in person is just that important.'
+                              'Your future comes to life when you set foot on the campus that will become your college home. Complete your application to Wes College by Jan 15, visit campus between Jan 15 and April 15, and enroll at Wes to receive a one time \$1,000 credit towards your first-year Wes tuition. We think experiencing life at Wes in person is just that important.'
 
 
                           ),
@@ -165,7 +165,7 @@ class GenericProfileUB extends StatelessWidget{
                               color: Color(0xffb0929c)
                           ),
                           SizedBox(width: 2,),
-                          Text("reed.edu")
+                          Text("wesleyan.edu")
                         ],
                       ),
                       Row(
@@ -184,7 +184,7 @@ class GenericProfileUB extends StatelessWidget{
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("admissions@ reed.edu")
+                                    Text("admissions@ wes.edu")
                                   ]
                               ),
                             ),
@@ -206,7 +206,7 @@ class GenericProfileUB extends StatelessWidget{
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("3203 SE WOODSTOCK BLVD PORTLAND, OR 97202")
+                                    Text("2033 SW Cardinal BLVD Middletown, CT 65202")
                                   ]
                               )
                           )
@@ -987,11 +987,11 @@ class StudentInsights extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-      color: Color.fromRGBO(215, 33, 33,.8),
+      color: Color.fromRGBO(82,25,39,0.8),
       shape: RoundedRectangleBorder(
         side:BorderSide(
             width:1,
-            color: Color.fromRGBO(0, 0,0,1)
+            color: Color.fromRGBO(0, 0, 0,1)
         ),
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(0.0),
@@ -1026,7 +1026,7 @@ class StudentInsights extends StatelessWidget{
                       children: [
                         Icon(
                             Icons.star_rounded,
-                            color: Color.fromRGBO(0,0,0,1),
+                            color: Color.fromRGBO(0, 0, 0,1),
                             size: 16),
 
                         Flexible(
@@ -1069,11 +1069,11 @@ class ExecutiveSummary extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-        color: Color.fromRGBO(215, 33, 33,.8),
+        color: Color.fromRGBO(82,25,39,0.8),
         shape: RoundedRectangleBorder(
           side:BorderSide(
               width:1,
-              color: Color.fromRGBO(0, 0,0,1)
+              color: Color.fromRGBO(51, 51, 51,1)
           ),
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20.0),
@@ -1136,7 +1136,7 @@ class CollegeMantra extends StatelessWidget{
                 foreground: Paint()
                   ..style = PaintingStyle.stroke
                   ..strokeWidth = 2
-                  ..color = Color.fromRGBO(215, 33, 33,.8),
+                  ..color = Color.fromRGBO(82,25,39,0.8),
               ),
             ),
 
@@ -1233,7 +1233,7 @@ class LocationListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children:[
                   SizedBox(width: screenWidth * 0.05,),
-                  CollegeMantra(mantra: "Drive your potential and run with the bulls at New York's public powerhouse.")
+                  CollegeMantra(mantra: "Learn to be the change you want to see in the world at Wesleyan.")
                 ]
             ),
             Spacer(),
@@ -1251,8 +1251,8 @@ class LocationListItem extends StatelessWidget {
               children: [
                 ExecutiveSummary(data:
                 [
-                  "Reed is a coeducational, independent liberal arts and sciences college in Southeast Portland, Oregon",
-                  "It is referred to as one of the most intellectual colleges in the country and is known for its high standards of scholarly practice, creative thinking, and engaged citizenship."
+                  "Wesleyan is a coeducational, independent liberal arts and sciences college in Middletown, Connecticut",
+                  "It is considered one of the most impactful liberal arts institutions in the United States, know for its world-famous alumni network."
                 ],
                 ),
                 SizedBox(width:(screenWidth * .05))

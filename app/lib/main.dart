@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:rosa/college_profile.dart';
 import 'package:rosa/uBuffProfile.dart';
 import 'package:rosa/wesProfile.dart';
+import 'hunterProfile.dart';
 import 'login.dart';
 import 'constants.dart';
 import 'homepage.dart';
@@ -43,6 +44,10 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/WES_profile',
       builder: (context, state) => const CollegeProfileWES(),
+    ),
+    GoRoute(
+      path: '/H_profile',
+      builder: (context, state) => const CollegeProfileH(),
     ),
   ],
 );
