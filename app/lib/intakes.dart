@@ -102,7 +102,7 @@ class Intakes extends State<IntakeForm> {
                       "Hi, I'm Rosa!",
                       style: TextStyle(
                         fontSize: 36,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w900,
                         color: rosaRedColor,
                       ),
                     ),
@@ -149,7 +149,7 @@ class Intakes extends State<IntakeForm> {
             ),
           ),
           SingleChildScrollView(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(top: 90.0, left: 45.0, right: 45.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -158,7 +158,7 @@ class Intakes extends State<IntakeForm> {
                   "1/4",
                   style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w800,
                       color: rosaRedColor),
                 ),
                 SizedBox(width: 40, height: 40),
@@ -288,7 +288,7 @@ class Intakes extends State<IntakeForm> {
             ),
           ),
           SingleChildScrollView(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(top: 65.0, left: 45.0, right: 45.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -397,7 +397,7 @@ class Intakes extends State<IntakeForm> {
             ),
           ),
           SingleChildScrollView(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(top: 40.0, left: 45.0, right: 45.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -431,7 +431,7 @@ class Intakes extends State<IntakeForm> {
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
                               child: SizedBox(
-                                height: 550,
+                                height: 500,
                                 child: SingleChildScrollView(
                                   child: GridView.count(
                                     crossAxisCount: 2,
@@ -526,7 +526,7 @@ class Intakes extends State<IntakeForm> {
             ),
           ),
           SingleChildScrollView(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(top: 90.0, left: 45.0, right: 45.0),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               const SizedBox(width: 40, height: 40),

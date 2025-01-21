@@ -28,7 +28,7 @@ class _MatchPage1State extends State<MatchPage1> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-            padding: EdgeInsets.only(top: 70.0, left: 45.0, right: 45.0),
+            padding: EdgeInsets.only(top: 90.0, left: 45.0, right: 45.0),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               RichText(
@@ -118,7 +118,7 @@ class _MatchPage1State extends State<MatchPage1> {
                       return null;
                     },
                   )),
-              const SizedBox(width: 15, height: 250),
+              Spacer(),
               Visibility(
                   visible: _selectedSchools!.isNotEmpty,
                   child: const Text(
@@ -143,7 +143,7 @@ class _MatchPage1State extends State<MatchPage1> {
                         color: dividerColor),
                   )),
               const SizedBox(width: 15, height: 15),
-              Spacer(),
+
               Visibility(
                   visible: _selectedSchools!.isNotEmpty,
                   child: Align(

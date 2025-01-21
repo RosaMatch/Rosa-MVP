@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6adb9a23-71e5-424d-9a9a-6856ff561602" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/assets/images/hunterColllege.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/lib/hunterProfile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/college_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/college_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/homepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/uBuffProfile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/uBuffProfile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/wesProfile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/wesProfile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/intakes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/intakes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/match.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/match.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
