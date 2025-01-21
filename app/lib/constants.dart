@@ -15,15 +15,8 @@ const Color dividerColor = Color.fromRGBO(176, 146, 156, 1);
 
 //Styles
 
-// const TextStyle mainTextStyle = TextStyle(
-//   color: Colors.white,
-//   decoration: TextDecoration()
-// );
-
 const ButtonStyle loginButtonStyle = ButtonStyle(
   backgroundColor: WidgetStatePropertyAll(Colors.white),
-  //textStyle: WidgetStatePropertyAll(mainTextStyle),
-  //maximumSize: WidgetStatePropertyAll(loginButtonSize),
 );
 
 //Themes
@@ -31,10 +24,6 @@ const AppBarTheme appBarTheme = AppBarTheme(
   backgroundColor: rosaRedColor,
   toolbarHeight: 50,
 );
-
-// const BottomAppBarTheme bottomAppBarTheme = BottomAppBarTheme(
-//   color: interactableBackgroundColor,
-// );
 
 const IconThemeData iconThemeData = IconThemeData(
   color: Colors.white,
@@ -45,7 +34,6 @@ ThemeData appTheme = ThemeData(
   scaffoldBackgroundColor: backgroundColorCream1,
   textTheme: GoogleFonts.kantumruyProTextTheme(),
   appBarTheme: appBarTheme,
-  //bottomAppBarTheme: bottomAppBarTheme,
   dividerColor: dividerColor,
   iconTheme: iconThemeData,
 );
@@ -90,3 +78,8 @@ const IconData studyAbroadIcon = Icons.explore_outlined;
 //STRINGS
 
 const String testCollegeProfileRoute = '/testcollege_profile';
+const String uBuffProfileRoute = '/UB_profile';
+const String wesProfileRoute = '/WES_profile';
+const String hunterProfileRoute = '/H_profile';
+const String juniorPfpPath = 'assets/images/juniorpfp.png';
+const String rosaIconPath = 'assets/icons/rosa_icon.png';

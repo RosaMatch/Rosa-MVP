@@ -18,7 +18,7 @@ class _HomePageState extends State<Home> {
                 title: Row(
                   children: [
                     Image.asset(
-                      'assets/icons/rosa_icon.png',
+                      rosaIconPath,
                       width: 44,
                       alignment: Alignment.centerLeft,
                     ),
@@ -62,18 +62,22 @@ class _HomePageState extends State<Home> {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-              child: Container(
+              child: SizedBox(
                 height: 70,
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
+                    side: BorderSide(
+                      color: textFormBorderColor,
+                      width: 1,
+                    )
                   ),
                   color: Colors.white,
 
                   child: Row(
                     children: [
                       CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/juniorpfp.png'),
+                        backgroundImage: AssetImage(juniorPfpPath),
                         radius: 31,
                       ),
                       Padding(
@@ -104,69 +108,65 @@ class _HomePageState extends State<Home> {
 
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: Container(
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    side: BorderSide(
-                      color: rosaRedColor,
-                      
-                    )
-                  ),
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Text(
-                          'Upcoming Dates',
-                          style: TextStyle(
-                            color: rosaRedColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30,
-                          ),
-                        )
-                      ),
-                      
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 30),
-                        child: Container(
-                          color: textFormBorderColor,
-                          height: 80,
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 5),
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              padding: EdgeInsets.symmetric(horizontal: 5),
-                              children: [
-                                UpdateCard(
-                                  alertType: 'Early Decision',
-                                  date: '11/15',
-                                  iconRoute: 'assets/icons/reed_icon.png',
-                                  collegeName: 'Reed College',
-                                ),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                  side: BorderSide(
+                    color: rosaRedColor,
+                  )
+                ),
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(5),
+                      child: Text(
+                        'Upcoming Dates',
+                        style: TextStyle(
+                          color: rosaRedColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
+                      )
+                    ),
+                    
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 30),
+                      child: Container(
+                        color: textFormBorderColor,
+                        height: 80,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 5),
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            padding: EdgeInsets.symmetric(horizontal: 5),
+                            children: [
+                              UpdateCard(
+                                alertType: 'Early Decision',
+                                date: '11/15',
+                                iconRoute: 'assets/icons/reed_icon.png',
+                                collegeName: 'Reed College',
+                              ),
 
-                                UpdateCard(
-                                  alertType: 'Early Decision',
-                                  date: '11/15',
-                                  iconRoute: 'assets/icons/wesleyan_icon.png',
-                                  collegeName: 'Wesleyan University',
-                                ),
+                              UpdateCard(
+                                alertType: 'Early Decision',
+                                date: '11/15',
+                                iconRoute: 'assets/icons/wesleyan_icon.png',
+                                collegeName: 'Wesleyan University',
+                              ),
 
-                                UpdateCard(
-                                  alertType: 'Undergrad Deadline',
-                                  date: '2/1',
-                                  iconRoute: 'assets/icons/hunter_icon.jpg',
-                                  collegeName: 'CUNY Hunter College',
-                                ),
-                              ]
-                            )
+                              UpdateCard(
+                                alertType: 'Undergrad Deadline',
+                                date: '1/15',
+                                iconRoute: 'assets/icons/hunter_icon.jpg',
+                                collegeName: 'CUNY Hunter College',
+                              ),
+                            ]
                           )
                         )
-                      ),
-
-                    ],
-                  )
+                      )
+                    ),
+                  ],
                 )
               )
             ),
@@ -178,6 +178,10 @@ class _HomePageState extends State<Home> {
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
+                    side: BorderSide(
+                      color: textFormBorderColor,
+                      width: 1,
+                    )
                   ),
                   color: Colors.white,
                   child: Column(
@@ -208,7 +212,7 @@ class _HomePageState extends State<Home> {
                                 CollegeCard(
                                   imagePath: 'assets/images/wesleyan.jpg',
                                   name: 'Wesleyan College',
-                                  route: '/WES_profile',
+                                  route: wesProfileRoute,
                                 ),
 
                                 CollegeCard(
@@ -220,13 +224,13 @@ class _HomePageState extends State<Home> {
                                 CollegeCard(
                                   imagePath: 'assets/images/hunterCollegeGobrrrbeepbeep.jpg',
                                   name: 'CUNY Hunter College',
-                                  route: '/H_profile',
+                                  route: hunterProfileRoute,
                                 ),
 
                                 CollegeCard(
                                   imagePath: 'assets/images/handsUbuff.jpg',
                                   name: 'University of Buffalo',
-                                  route: '/UB_profile',
+                                  route: uBuffProfileRoute,
                                 ),
                               ]
                             )
