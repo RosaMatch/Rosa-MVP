@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 //COLORS
 const Color backgroundColorCream1 = Color.fromRGBO(238, 242, 232, 1);
 const Color rosaRedColor = Color.fromRGBO(82, 25, 39, 1);
+const Color rosaRedSplashColor = Color.fromRGBO(82, 25, 39, 0.3);
 const Color textFormBorderColor = Color.fromRGBO(227, 227, 210, 1);
 const Color inactiveRedColor = Color.fromRGBO(176, 146, 156, 1);
 const Color activeRedColor = Color.fromRGBO(108, 86, 92, 1);
@@ -85,3 +86,7 @@ const IconData academicIcon = Icons.account_balance_outlined;
 const IconData curriculumIcon = Icons.library_books_outlined;
 const IconData studyAbroadIcon = Icons.explore_outlined;
 
+
+//STRINGS
+
+const String testCollegeProfileRoute = '/testcollege_profile';
