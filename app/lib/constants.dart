@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 //COLORS
 const Color backgroundColorCream1 = Color.fromRGBO(238, 242, 232, 1);
 const Color rosaRedColor = Color.fromRGBO(82, 25, 39, 1);
+const Color rosaRedSplashColor = Color.fromRGBO(82, 25, 39, 0.3);
 const Color textFormBorderColor = Color.fromRGBO(227, 227, 210, 1);
 const Color inactiveRedColor = Color.fromRGBO(176, 146, 156, 1);
 const Color activeRedColor = Color.fromRGBO(108, 86, 92, 1);
@@ -28,7 +29,7 @@ const ButtonStyle loginButtonStyle = ButtonStyle(
 //Themes
 const AppBarTheme appBarTheme = AppBarTheme(
   backgroundColor: rosaRedColor,
-  toolbarHeight: 84,
+  toolbarHeight: 50,
 );
 
 // const BottomAppBarTheme bottomAppBarTheme = BottomAppBarTheme(
@@ -62,3 +63,30 @@ InputDecoration generateInputDecoration(String hint) {
 
   return decoration;
 }
+
+const double iconSize= 50.0;
+const Color iconColor = Color.fromRGBO(82, 25, 39, 1);
+const Color iconColor2 = Color.fromRGBO(243, 252, 250, 1);
+//ICONS
+const IconData essayIcon = Icons.history_edu_outlined;
+const IconData fundingIcon = Icons.savings_outlined;
+const IconData researchSchoolsIcon = Icons.search_outlined;
+const IconData outreachIcon = Icons.question_answer_outlined;
+const IconData fitfactorIcon = Icons.extension_outlined;
+const IconData everythingIcon = Icons.sentiment_very_satisfied_outlined;
+
+const IconData COAIcon = Icons.payments_outlined;
+const IconData researchIcon = Icons.biotech_outlined;
+const IconData careerIcon = Icons.work_outline;
+const IconData sportsIcon = Icons.sports_football_outlined;
+const IconData locationIcon = Icons.location_on_outlined;
+const IconData volunteerIcon = Icons.volunteer_activism_outlined;
+const IconData communityIcon = Icons.groups_outlined;
+const IconData academicIcon = Icons.account_balance_outlined;
+const IconData curriculumIcon = Icons.library_books_outlined;
+const IconData studyAbroadIcon = Icons.explore_outlined;
+
+
+//STRINGS
+
+const String testCollegeProfileRoute = '/testcollege_profile';
