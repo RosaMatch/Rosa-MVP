@@ -6,7 +6,7 @@ import 'package:rosa/pages/college_profiles/wesProfile.dart';
 import 'pages/college_profiles/hunterProfile.dart';
 import 'pages/login.dart';
 import 'constants/constants.dart';
-import 'pages/home/homepage.dart';
+import 'pages/home/home.dart';
 import 'pages/intakes.dart';
 import 'pages/match.dart';
 import 'package:confetti/confetti.dart';
