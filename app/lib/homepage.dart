@@ -22,14 +22,6 @@ class _HomePageState extends State<Home> {
                       width: 44,
                       alignment: Alignment.centerLeft,
                     ),
-                    // const Padding(
-                    //   padding: EdgeInsets.only(left: 268.0),
-                    //   child: Icon(
-                    //     Icons.settings,
-                    //     color: Colors.white,
-                    //     size: 64,
-                    //   ),
-                    // ),
                   ],
                 ),
                 toolbarHeight: 44,
@@ -85,11 +77,6 @@ class _HomePageState extends State<Home> {
                         backgroundImage: AssetImage('assets/images/juniorpfp.png'),
                         radius: 31,
                       ),
-                      // Image.asset(
-                      //   'assets/images/juniorpfp.png',
-                      //   height: 64,
-                      //   width: 64,
-                      // ),
                       Padding(
                         padding: EdgeInsets.all(5),
                         child: Text(
@@ -99,7 +86,6 @@ class _HomePageState extends State<Home> {
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),
-                          //selectionColor: rosaRedColor
                         ),
                       ),
                     ]
@@ -186,6 +172,8 @@ class _HomePageState extends State<Home> {
               )
             ),
 
+            
+
             ElevatedButton(
               onPressed: () {
                 context.push('/login');
@@ -201,7 +189,7 @@ class _HomePageState extends State<Home> {
             ),
             ElevatedButton(
               onPressed: () {
-                context.push('/testcollege_profile');
+                context.go('/testcollege_profile');
               },
               child: const Text('Go to College Profile'),
             ),
@@ -292,7 +280,7 @@ class CollegeCard extends StatelessWidget {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      context.push(route);
+                      context.go(route);
                     },
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(25),
