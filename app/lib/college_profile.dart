@@ -995,11 +995,11 @@ class StudentInsights extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-      color: Color.fromARGB(225, 82,25,39),
+      color: Color.fromRGBO(82,25,39,0.8),
       shape: RoundedRectangleBorder(
         side:BorderSide(
           width:1,
-          color: Color.fromARGB(255, 7,43,75)
+          color: Color.fromRGBO(82,25,39,1)
         ),
         borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(0.0),
@@ -1077,11 +1077,11 @@ class ExecutiveSummary extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-      color: Color.fromARGB(225, 82,25,39),
+      color: Color.fromRGBO(82,25,39,0.8),
       shape: RoundedRectangleBorder(
         side:BorderSide(
           width:1,
-          color: Color.fromARGB(255, 7,43,75)
+          color: Color.fromRGBO(82,25,39,1)
         ),
         borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20.0),
@@ -1131,7 +1131,7 @@ class CollegeMantra extends StatelessWidget{
         padding : EdgeInsets.only(left:15.0,top: 5.0, bottom:5.0),
         decoration: BoxDecoration(
           border: Border(
-            left: BorderSide(width: 2 ,color: Color.fromARGB(255, 82,25,39),)
+            left: BorderSide(width: 2 ,color: Color.fromRGBO(82,25,39,0.8),)
           ),
         ),
         child: Stack(
@@ -1334,3 +1334,5 @@ class ParallaxFlowDelegate extends FlowDelegate {
         backgroundImageKey != oldDelegate.backgroundImageKey;
   }
 }
+
+

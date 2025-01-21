@@ -58,13 +58,12 @@ class _HomePageState extends State<Home> {
         ],
       ),
       body: Center(
-        child: Column(
+        child: ListView(
           children: [
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
               child: Container(
                 height: 70,
-                //width: 317,
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
@@ -106,6 +105,75 @@ class _HomePageState extends State<Home> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: Container(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0),
+                    side: BorderSide(
+                      color: rosaRedColor,
+                      
+                    )
+                  ),
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Text(
+                          'Upcoming Dates',
+                          style: TextStyle(
+                            color: rosaRedColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
+                          ),
+                        )
+                      ),
+                      
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 30),
+                        child: Container(
+                          color: textFormBorderColor,
+                          height: 80,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 5),
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              padding: EdgeInsets.symmetric(horizontal: 5),
+                              children: [
+                                UpdateCard(
+                                  alertType: 'Early Decision',
+                                  date: '11/15',
+                                  iconRoute: 'assets/icons/reed_icon.png',
+                                  collegeName: 'Reed College',
+                                ),
+
+                                UpdateCard(
+                                  alertType: 'Early Decision',
+                                  date: '11/15',
+                                  iconRoute: 'assets/icons/wesleyan_icon.png',
+                                  collegeName: 'Wesleyan University',
+                                ),
+
+                                UpdateCard(
+                                  alertType: 'Undergrad Deadline',
+                                  date: '2/1',
+                                  iconRoute: 'assets/icons/hunter_icon.jpg',
+                                  collegeName: 'CUNY Hunter College',
+                                ),
+                              ]
+                            )
+                          )
+                        )
+                      ),
+
+                    ],
+                  )
+                )
+              )
+            ),
+
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Container(
                 height: 220,
                 child: Card(
                   shape: RoundedRectangleBorder(
@@ -140,7 +208,7 @@ class _HomePageState extends State<Home> {
                                 CollegeCard(
                                   imagePath: 'assets/images/wesleyan.jpg',
                                   name: 'Wesleyan College',
-                                  route: testCollegeProfileRoute,
+                                  route: '/WES_profile',
                                 ),
 
                                 CollegeCard(
@@ -152,13 +220,13 @@ class _HomePageState extends State<Home> {
                                 CollegeCard(
                                   imagePath: 'assets/images/hunterCollegeGobrrrbeepbeep.jpg',
                                   name: 'CUNY Hunter College',
-                                  route: testCollegeProfileRoute,
+                                  route: '/H_profile',
                                 ),
 
                                 CollegeCard(
                                   imagePath: 'assets/images/handsUbuff.jpg',
                                   name: 'University of Buffalo',
-                                  route: testCollegeProfileRoute,
+                                  route: '/UB_profile',
                                 ),
                               ]
                             )
@@ -171,8 +239,6 @@ class _HomePageState extends State<Home> {
                 )
               )
             ),
-
-            
 
             ElevatedButton(
               onPressed: () {
@@ -200,6 +266,28 @@ class _HomePageState extends State<Home> {
               child: const Text('Go to Match'),
 
             ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/UB_profile');
+              },
+              child: const Text('Go to Ubuff'),
+
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/WES_profile');
+              },
+              child: const Text('Go to WES'),
+
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/H_profile');
+              },
+              child: const Text('Go to Hunter'),
+
+            )
+
           ],
         ),
       ),
@@ -293,6 +381,89 @@ class CollegeCard extends StatelessWidget {
               )
             ],
       ),
+    );
+  }
+}
+
+class UpdateCard extends StatelessWidget {
+  
+  const UpdateCard({
+    super.key,
+    required this.alertType,
+    required this.date,
+    required this.iconRoute,
+    required this.collegeName,
+  });
+
+  final String alertType;
+  final String date;
+  final String iconRoute;
+  final String collegeName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical:5, horizontal: 1),
+      child: Card(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Row(
+          children: [
+            CircleAvatar(
+              backgroundColor: Colors.transparent,
+              backgroundImage: AssetImage(iconRoute),
+              radius: 26
+            ),
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 3, bottom: 2, left: 5, right: 15),
+                  child: Text(
+                    collegeName,
+                    style: TextStyle(
+                      color: backgroundColorCream2,
+                      fontSize: 12,
+                    )
+                  ),
+                ),
+
+                Padding(
+                  padding: EdgeInsets.only(left: 5, right: 15),
+                  child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: alertType,
+
+                        ),
+                        TextSpan(
+                          text: ' | ',
+                        ),
+                        TextSpan(
+                          text: date,
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          )
+                        )
+                      ],
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  )
+                )
+              ]
+            ),
+          ]
+        )
+      )
     );
   }
 }
