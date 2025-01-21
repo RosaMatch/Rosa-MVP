@@ -8,56 +8,14 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<Home> {
-  int currentPage = 0;
+class HomePage extends StatelessWidget {
+  const HomePage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-                title: Row(
-                  children: [
-                    Image.asset(
-                      rosaIconPath,
-                      width: 44,
-                      alignment: Alignment.centerLeft,
-                    ),
-                  ],
-                ),
-                toolbarHeight: 44,
-                backgroundColor: rosaRedColor,
-              ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) {
-          setState(() {
-            currentPage = value;
-          });
-        },
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: textFormBorderColor,
-        selectedItemColor: rosaRedColor,
-        unselectedItemColor: inactiveRedColor,
-        currentIndex: currentPage,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.lightbulb),
-            label: "Insights",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: "List",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
-      ),
-      body: Center(
+    return Center(
         child: ListView(
           children: [
             Padding(
@@ -294,7 +252,67 @@ class _HomePageState extends State<Home> {
 
           ],
         ),
+      );
+  }
+}
+
+class _HomePageState extends State<Home> {
+  final List<Widget> pages = [
+    HomePage(),
+    Scaffold(),
+    Scaffold(),
+    Scaffold()
+  ];
+
+  int currentPage = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+                title: Row(
+                  children: [
+                    Image.asset(
+                      rosaIconPath,
+                      width: 44,
+                      alignment: Alignment.centerLeft,
+                    ),
+                  ],
+                ),
+                toolbarHeight: 44,
+                backgroundColor: rosaRedColor,
+              ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) {
+          setState(() {
+            currentPage = value;
+          });
+        },
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: textFormBorderColor,
+        selectedItemColor: rosaRedColor,
+        unselectedItemColor: inactiveRedColor,
+        currentIndex: currentPage,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.lightbulb),
+            label: "Insights",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: "List",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+        ],
       ),
+      body: pages[currentPage],
     );
   }
 }
