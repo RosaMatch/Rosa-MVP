@@ -187,7 +187,6 @@ class Intakes extends State<IntakeForm> {
                         const SizedBox(width: 40, height: 40),
                         Form(
                           key: _formKey1,
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -360,7 +359,6 @@ class Intakes extends State<IntakeForm> {
                     ),
                     Form(
                       key: _formKey2,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -503,7 +501,6 @@ class Intakes extends State<IntakeForm> {
                     const SizedBox(width: 40, height: 40),
                     Form(
                       key: _formKey3,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -669,7 +666,6 @@ class Intakes extends State<IntakeForm> {
                     const SizedBox(width: 40, height: 40),
                     Form(
                       key: _formKey4,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[

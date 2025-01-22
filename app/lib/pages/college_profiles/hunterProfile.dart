@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import '../../constants/constants.dart';
-import 'package:flutter/rendering.dart';
 //////////////////HUNTER
 
 class CollegeProfileH extends StatefulWidget {
@@ -178,7 +177,7 @@ class GenericProfileH extends StatelessWidget{
                                 color: Color(0xffb0929c)
                             ),
                             SizedBox(width: 2,),
-                            Container(
+                            SizedBox(
                               width:MediaQuery.of(context).size.width * .25,
                               child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -200,7 +199,7 @@ class GenericProfileH extends StatelessWidget{
                               color: Color(0xffb0929c)
                           ),
                           SizedBox(width: 2,),
-                          Container(
+                          SizedBox(
                               width:MediaQuery.of(context).size.width * .25,
                               child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,

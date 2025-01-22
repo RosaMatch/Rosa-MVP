@@ -181,7 +181,7 @@ class GenericProfileUB extends StatelessWidget{
                                 color: Color(0xffb0929c)
                             ),
                             SizedBox(width: 2,),
-                            Container(
+                            SizedBox(
                               width:MediaQuery.of(context).size.width * .25,
                               child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -203,7 +203,7 @@ class GenericProfileUB extends StatelessWidget{
                               color: Color(0xffb0929c)
                           ),
                           SizedBox(width: 2,),
-                          Container(
+                          SizedBox(
                               width:MediaQuery.of(context).size.width * .25,
                               child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,

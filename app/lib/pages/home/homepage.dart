@@ -132,7 +132,7 @@ class HomePage extends StatelessWidget {
 
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 6),
-              child: Container(
+              child: SizedBox(
                 height: 220,
                 child: Card(
                   shape: RoundedRectangleBorder(
@@ -191,7 +191,7 @@ class HomePage extends StatelessWidget {
 
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 6),
-              child: Container(
+              child: SizedBox(
                 height: 220,
                 child: Card(
                   shape: RoundedRectangleBorder(
