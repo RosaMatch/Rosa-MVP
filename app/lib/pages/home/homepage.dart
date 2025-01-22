@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         child: ListView(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 70),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 27),
               child: SizedBox(
                 height: 70,
                 child: Card(
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(5),
                         child: Text(
-                          'Welcome, Junior',
+                          'Welcome Aboard, Junior!',
                           style: TextStyle(
                             color: rosaRedColor,
                             fontWeight: FontWeight.bold,
