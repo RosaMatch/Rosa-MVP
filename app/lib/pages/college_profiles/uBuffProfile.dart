@@ -43,6 +43,8 @@ class ProfileUB extends State<CollegeProfileUB>{
               ]
           )
       ),
+      
+      
       body: SingleChildScrollView(
           child:Padding(
             padding: const EdgeInsets.all(8.0),
@@ -57,6 +59,7 @@ class ProfileUB extends State<CollegeProfileUB>{
             ),
           )
       ),
+      
     );
 
   }
@@ -263,8 +266,15 @@ class GenericProfileUB extends StatelessWidget{
                             style: TextStyle(fontSize: 20)
                         ),
                       ),
+                    ],
+                  ),
 
-                      Spacer(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      
+
                       FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text("January 15",
@@ -421,26 +431,32 @@ class GenericProfileUB extends StatelessWidget{
                           color : Color(0xffe3e3d2)
                       ),
 
-                      IntrinsicWidth(
-                          child:Container(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text("Average Total Aid Awarded",
+                      Flexible(
+                        child: IntrinsicWidth(
+                            child:Container(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text("Average Total Aid Awarded",
+                                  textAlign: TextAlign.right,
                                   style: TextStyle(fontWeight: FontWeight.w100),
-                                ),
-                                Text("\$47,864"),
-
-                                Divider(
-                                    color : Color(0xffe3e3d2)
-                                ),
-                                Text("Students Recieving Financial Aid"),
-                                Text("64%"),
-                              ],
-                            ),
-                          )
+                                  ),
+                                  Text("\$47,864"),
+                        
+                                  Divider(
+                                      color : Color(0xffe3e3d2)
+                                  ),
+                                  Text("Students Recieving Financial Aid",
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(fontWeight: FontWeight.w100),),
+                                  Text("64%"),
+                                ],
+                              ),
+                            )
+                        ),
                       )
+
                     ]
 
                 )
@@ -1172,7 +1188,7 @@ class LocationListItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
       child: AspectRatio(
-        aspectRatio:  screenWidth/ (screenHeight*1.25),
+        aspectRatio:  screenWidth / (screenHeight * 1.25 ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: Stack(
@@ -1279,7 +1295,7 @@ class ParallaxFlowDelegate extends FlowDelegate {
   @override
   BoxConstraints getConstraintsForChild(int i, BoxConstraints constraints) {
     return BoxConstraints.tightFor(
-      height: constraints.maxHeight *1.2,
+      height:constraints.maxHeight*1.1,
     );
   }
 
@@ -1300,7 +1316,7 @@ class ParallaxFlowDelegate extends FlowDelegate {
 
     // Calculate the vertical alignment of the background
     // based on the scroll percent.
-    final verticalAlignment = Alignment(0.0, scrollFraction * 2 - 1);
+    final verticalAlignment = Alignment(0.0, scrollFraction * 3- 1);
 
     // Convert the background alignment into a pixel offset for
     // painting purposes.
