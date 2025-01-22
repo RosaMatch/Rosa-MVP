@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'constants.dart';
+import '../constants/constants.dart';
 
 class IntakeForm extends StatefulWidget {
   const IntakeForm({super.key});
@@ -355,12 +355,15 @@ class Intakes extends State<IntakeForm> {
                                   margin: const EdgeInsets.all(8.0),
                                   padding: const EdgeInsets.all(6.0),
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: _selectedImagesForm2
+                                              .contains(iconText)
+                                          ? rosaRedColor
+                                          : Colors.transparent,
                                     border: Border.all(
                                       color: _selectedImagesForm2
                                               .contains(iconText)
-                                          ? rosaRedColor
-                                          : Colors.grey,
+                                          ? inactiveRedColor
+                                          : rosaRedColor,
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
@@ -373,8 +376,8 @@ class Intakes extends State<IntakeForm> {
                                         size: iconSize,
                                         color: _selectedImagesForm2
                                                 .contains(iconText)
-                                            ? Colors.black
-                                            : iconColor,
+                                            ? backgroundColorCream3
+                                            : rosaRedColor,
                                       ),
                                       const SizedBox(height: 8.0),
                                       Text(
@@ -382,8 +385,10 @@ class Intakes extends State<IntakeForm> {
                                         style: TextStyle(
                                           color: _selectedImagesForm2
                                                   .contains(iconText)
-                                              ? Colors.black
-                                              : iconColor,
+                                              ? backgroundColorCream3
+                                              : rosaRedColor,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                     ],
@@ -452,7 +457,7 @@ class Intakes extends State<IntakeForm> {
                                       ][index];
                                       final iconText = [
                                         'Cost',
-                                        'Reasearch',
+                                        'Research',
                                         'Career',
                                         'Sports',
                                         'Location',
@@ -480,12 +485,15 @@ class Intakes extends State<IntakeForm> {
                                           margin: const EdgeInsets.all(8.0),
                                           padding: const EdgeInsets.all(6.0),
                                           decoration: BoxDecoration(
-                                            color: rosaRedColor,
+                                            color: _selectedImagesForm3
+                                                      .contains(iconText)
+                                                  ? backgroundColorCream3
+                                                  : Colors.transparent,
                                             border: Border.all(
                                               color: _selectedImagesForm3
                                                       .contains(iconText)
-                                                  ? Colors.black
-                                                  : iconColor2,
+                                                  ? activeRedColor
+                                                  : backgroundColorCream3,
                                               width: 2,
                                             ),
                                             borderRadius:
@@ -500,8 +508,8 @@ class Intakes extends State<IntakeForm> {
                                                 size: iconSize,
                                                 color: _selectedImagesForm3
                                                         .contains(iconText)
-                                                    ? Colors.black
-                                                    : iconColor2,
+                                                    ? iconColor
+                                                    : backgroundColorCream3,
                                               ),
                                               const SizedBox(height: 8.0),
                                               Text(
@@ -509,8 +517,10 @@ class Intakes extends State<IntakeForm> {
                                                 style: TextStyle(
                                                   color: _selectedImagesForm3
                                                           .contains(iconText)
-                                                      ? Colors.black
-                                                      : iconColor2,
+                                                      ? rosaRedColor
+                                                      : backgroundColorCream3,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                               ),
                                             ],

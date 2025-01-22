@@ -1,13 +1,6 @@
-import 'dart:ffi';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:multi_select_flutter/multi_select_flutter.dart';
-import 'constants.dart';
-import 'package:flutter/rendering.dart';
-
-
 
 // For college profile Ui, the information cannot be hardcoded so I will try to make this as general as possible
 
@@ -267,18 +260,25 @@ class GenericProfile extends StatelessWidget{
                       FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
-                        "Application Deadline",
-                        style: TextStyle(fontSize: 20)
+                            "Application Deadline",
+                            style: TextStyle(fontSize: 20)
                         ),
                       ),
+                    ],
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
                       
-                      Spacer(),
+
                       FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text("January 15",
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                       )
-                      
+
                     ],
                   ),
                   SizedBox(height: 15,),
@@ -429,26 +429,31 @@ class GenericProfile extends StatelessWidget{
                     color : Color(0xffe3e3d2)
                   ),
                   
-                  IntrinsicWidth(
-                    child:Container(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text("Average Total Aid Awarded",
-                            style: TextStyle(fontWeight: FontWeight.w100),
-                          ),
-                          Text("\$47,864"),
-
-                          Divider(
-                            color : Color(0xffe3e3d2)
-                          ),
-                          Text("Students Recieving Financial Aid"),
-                          Text("64%"),
-                        ],
-                      ),
-                    )
-                  )
+                  Flexible(
+                        child: IntrinsicWidth(
+                            child:Container(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text("Average Total Aid Awarded",
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(fontWeight: FontWeight.w100),
+                                  ),
+                                  Text("\$47,864"),
+                        
+                                  Divider(
+                                      color : Color(0xffe3e3d2)
+                                  ),
+                                  Text("Students Recieving Financial Aid",
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(fontWeight: FontWeight.w100),),
+                                  Text("64%"),
+                                ],
+                              ),
+                            )
+                        ),
+                      )
                 ]
                 
               )
@@ -1103,7 +1108,9 @@ class ExecutiveSummary extends StatelessWidget{
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 for(var dataBit in data)
-                  Text(dataBit + "\n", style: TextStyle( fontSize:16,color: Colors.white,),),
+                  
+                  Text(dataBit + "\n", 
+                  style: TextStyle( fontSize:16,color: Colors.white,),),
                 ],
             )
             
@@ -1180,7 +1187,7 @@ class LocationListItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
       child: AspectRatio(
-        aspectRatio:  screenWidth/ (screenHeight*1.25),
+        aspectRatio:  screenWidth / (screenHeight * 1.25 ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: Stack(
@@ -1287,7 +1294,7 @@ class ParallaxFlowDelegate extends FlowDelegate {
   @override
   BoxConstraints getConstraintsForChild(int i, BoxConstraints constraints) {
     return BoxConstraints.tightFor(
-      height: constraints.maxHeight *1.2,
+      height:constraints.maxHeight*1.1,
     );
   }
 
@@ -1308,7 +1315,7 @@ class ParallaxFlowDelegate extends FlowDelegate {
 
     // Calculate the vertical alignment of the background
     // based on the scroll percent.
-    final verticalAlignment = Alignment(0.0, scrollFraction * 2 - 1);
+    final verticalAlignment = Alignment(0.0, scrollFraction * 3 - 1);
 
     // Convert the background alignment into a pixel offset for
     // painting purposes.

@@ -4,19 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
-import 'constants.dart';
+import '../../constants/constants.dart';
 import 'package:flutter/rendering.dart';
-//////////////////WES
+//////////////////UBUFF
 
-class CollegeProfileWES extends StatefulWidget {
-  const CollegeProfileWES({super.key});
+class CollegeProfileUB extends StatefulWidget {
+  const CollegeProfileUB({super.key});
 
   @override
-  ProfileWES createState() {
-    return ProfileWES();
+  ProfileUB createState() {
+    return ProfileUB();
   }
 }
-class ProfileWES extends State<CollegeProfileWES>{
+class ProfileUB extends State<CollegeProfileUB>{
   @override
   Widget build(BuildContext context){
     double screenWidth = MediaQuery.of(context).size.width;
@@ -33,16 +33,18 @@ class ProfileWES extends State<CollegeProfileWES>{
                     },
                     child: const Icon(
                       Icons.arrow_back_ios,
-                      color: Color.fromRGBO(82,25,39,0.8),
+                      color: Color.fromRGBO(139, 149, 170,1),
                       size: 32,
                     )
                 ),
-                Text("Wesleyan University"
+                Text("University at Buffalo"
                     , style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
                 ) //CollegeName will be hard coded for now
               ]
           )
       ),
+      
+      
       body: SingleChildScrollView(
           child:Padding(
             padding: const EdgeInsets.all(8.0),
@@ -51,12 +53,13 @@ class ProfileWES extends State<CollegeProfileWES>{
                   ParallaxContainer(),
                   Divider(color: Color(0xffbec0cb)),
                   SizedBox(height: 15,),
-                  GenericProfileWES(admissionsData: ["lol", "lol", "lol", "lol", "lol" ,"lol", "lol" ,"lol"],),
+                  GenericProfileUB(admissionsData: ["lol", "lol", "lol", "lol", "lol" ,"lol", "lol" ,"lol"],),
                   SizedBox(height:20,),
                 ]
             ),
           )
       ),
+      
     );
 
   }
@@ -64,8 +67,8 @@ class ProfileWES extends State<CollegeProfileWES>{
 
 }
 
-class GenericProfileWES extends StatelessWidget{
-  const GenericProfileWES({
+class GenericProfileUB extends StatelessWidget{
+  const GenericProfileUB({
     super.key,
     required this.admissionsData,
   });
@@ -111,7 +114,7 @@ class GenericProfileWES extends StatelessWidget{
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                            "Wesyleyan Univsersity",
+                            "University at Buffalo",
                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
                         )
                       ],
@@ -125,7 +128,7 @@ class GenericProfileWES extends StatelessWidget{
                           padding: EdgeInsets.all(4),
                           width: MediaQuery.of(context).size.width *.45,
                           child: Text(
-                              'Your future comes to life when you set foot on the campus that will become your college home. Complete your application to Wes College by Jan 15, visit campus between Jan 15 and April 15, and enroll at Wes to receive a one time \$1,000 credit towards your first-year Wes tuition. We think experiencing life at Wes in person is just that important.'
+                              'Your future comes to life when you set foot on the campus that will become your college home. Complete your application to Ubuff College by Jan 15, visit campus between Jan 15 and April 15, and enroll at Ubuff to receive a one time \$1,000 credit towards your first-year Ubuff tuition. We think experiencing life at UBuff in person is just that important.'
 
 
                           ),
@@ -165,7 +168,7 @@ class GenericProfileWES extends StatelessWidget{
                               color: Color(0xffb0929c)
                           ),
                           SizedBox(width: 2,),
-                          Text("wesleyan.edu")
+                          Text("ubuff.edu")
                         ],
                       ),
                       Row(
@@ -184,7 +187,7 @@ class GenericProfileWES extends StatelessWidget{
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("admissions@ wes.edu")
+                                    Text("admissions@ ubuff.edu")
                                   ]
                               ),
                             ),
@@ -206,7 +209,7 @@ class GenericProfileWES extends StatelessWidget{
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("2033 SW Cardinal BLVD Middletown, CT 65202")
+                                    Text("3203 SE WOODSTOCK BLVD PORTLAND, OR 97202")
                                   ]
                               )
                           )
@@ -263,8 +266,15 @@ class GenericProfileWES extends StatelessWidget{
                             style: TextStyle(fontSize: 20)
                         ),
                       ),
+                    ],
+                  ),
 
-                      Spacer(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      
+
                       FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text("January 15",
@@ -421,26 +431,32 @@ class GenericProfileWES extends StatelessWidget{
                           color : Color(0xffe3e3d2)
                       ),
 
-                      IntrinsicWidth(
-                          child:Container(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text("Average Total Aid Awarded",
+                      Flexible(
+                        child: IntrinsicWidth(
+                            child:Container(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text("Average Total Aid Awarded",
+                                  textAlign: TextAlign.right,
                                   style: TextStyle(fontWeight: FontWeight.w100),
-                                ),
-                                Text("\$47,864"),
-
-                                Divider(
-                                    color : Color(0xffe3e3d2)
-                                ),
-                                Text("Students Recieving Financial Aid"),
-                                Text("64%"),
-                              ],
-                            ),
-                          )
+                                  ),
+                                  Text("\$47,864"),
+                        
+                                  Divider(
+                                      color : Color(0xffe3e3d2)
+                                  ),
+                                  Text("Students Recieving Financial Aid",
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(fontWeight: FontWeight.w100),),
+                                  Text("64%"),
+                                ],
+                              ),
+                            )
+                        ),
                       )
+
                     ]
 
                 )
@@ -966,7 +982,7 @@ class ParallaxContainer extends StatelessWidget{
     return Column(
       children: [
         LocationListItem(
-          imageUrl: "assets/images/wesleyan.jpg",
+          imageUrl: "assets/images/uBuffaerialcrop.jpg",
         ),
       ],
 
@@ -987,11 +1003,11 @@ class StudentInsights extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-      color: Color.fromRGBO(82,25,39,0.8),
+      color: Color.fromRGBO(139, 149, 170,.8),
       shape: RoundedRectangleBorder(
         side:BorderSide(
             width:1,
-            color: Color.fromRGBO(0, 0, 0,1)
+            color: Color.fromRGBO(139, 149, 170,1)
         ),
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(0.0),
@@ -1026,7 +1042,7 @@ class StudentInsights extends StatelessWidget{
                       children: [
                         Icon(
                             Icons.star_rounded,
-                            color: Color.fromRGBO(0, 0, 0,1),
+                            color: Color.fromRGBO(228,228,228,1),
                             size: 16),
 
                         Flexible(
@@ -1069,11 +1085,11 @@ class ExecutiveSummary extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-        color: Color.fromRGBO(82,25,39,0.8),
+        color: Color.fromRGBO(139, 149, 170,.8),
         shape: RoundedRectangleBorder(
           side:BorderSide(
               width:1,
-              color: Color.fromRGBO(51, 51, 51,1)
+              color: Color.fromRGBO(139, 149, 170,1)
           ),
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20.0),
@@ -1123,26 +1139,26 @@ class CollegeMantra extends StatelessWidget{
       padding : EdgeInsets.only(left:15.0,top: 5.0, bottom:5.0),
       decoration: BoxDecoration(
         border: Border(
-            left: BorderSide(width: 2 ,color: Color.fromRGBO(0, 0, 0,1),)
+            left: BorderSide(width: 2 ,color: Color.fromRGBO(139, 149, 170,1),)
         ),
       ),
       child: Stack(
           children: [
             Text(mantra ,
               textAlign: TextAlign.left,
-              style: GoogleFonts.literata(
+              style: GoogleFonts.gelasio(
                 fontSize: 30,
                 fontWeight: FontWeight.bold ,
                 foreground: Paint()
                   ..style = PaintingStyle.stroke
                   ..strokeWidth = 2
-                  ..color = Color.fromRGBO(82,25,39,0.8),
+                  ..color = Color.fromRGBO(139, 149, 170,1),
               ),
             ),
 
             Text(mantra ,
               textAlign: TextAlign.left,
-              style: GoogleFonts.literata(
+              style: GoogleFonts.gelasio(
                   fontSize: 30,
                   color: Color(0xffffffff),
                   fontWeight: FontWeight.bold
@@ -1172,7 +1188,7 @@ class LocationListItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
       child: AspectRatio(
-        aspectRatio:  screenWidth/ (screenHeight*1.25),
+        aspectRatio:  screenWidth / (screenHeight * 1.25 ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: Stack(
@@ -1233,7 +1249,7 @@ class LocationListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children:[
                   SizedBox(width: screenWidth * 0.05,),
-                  CollegeMantra(mantra: "Learn to be the change you want to see in the world at Wesleyan.")
+                  CollegeMantra(mantra: "Drive your potential and run with the bulls at New York's public powerhouse.")
                 ]
             ),
             Spacer(),
@@ -1251,8 +1267,8 @@ class LocationListItem extends StatelessWidget {
               children: [
                 ExecutiveSummary(data:
                 [
-                  "Wesleyan is a coeducational, independent liberal arts and sciences college in Middletown, Connecticut",
-                  "It is considered one of the most impactful liberal arts institutions in the United States, know for its world-famous alumni network."
+                  "The University at Buffalo is a public, comprehensive higher-ed institution in Buffalo, New York.",
+                  "It is considered one of the foremost research institutions in the east, boasting several award-winning programs and programs for its 40-thousand students, staff, and faculty."
                 ],
                 ),
                 SizedBox(width:(screenWidth * .05))
@@ -1279,7 +1295,7 @@ class ParallaxFlowDelegate extends FlowDelegate {
   @override
   BoxConstraints getConstraintsForChild(int i, BoxConstraints constraints) {
     return BoxConstraints.tightFor(
-      height: constraints.maxHeight *1.2,
+      height:constraints.maxHeight*1.1,
     );
   }
 
@@ -1300,7 +1316,7 @@ class ParallaxFlowDelegate extends FlowDelegate {
 
     // Calculate the vertical alignment of the background
     // based on the scroll percent.
-    final verticalAlignment = Alignment(0.0, scrollFraction * 2 - 1);
+    final verticalAlignment = Alignment(0.0, scrollFraction * 3- 1);
 
     // Convert the background alignment into a pixel offset for
     // painting purposes.
