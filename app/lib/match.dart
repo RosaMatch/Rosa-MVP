@@ -379,7 +379,7 @@ class MatchPage4 extends StatelessWidget {
                                     right: 10.0, bottom: 80.0),
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    context.go('/');
+                                    context.go('/home');
                                   },
                                   style: ElevatedButton.styleFrom(
                                     shape: CircleBorder(),

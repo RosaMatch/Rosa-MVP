@@ -19,15 +19,15 @@ final GoRouter _router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const Home(),
+      builder: (context, state) => const LoginForm(),
     ),
     GoRoute(
       path: '/intakes',
       builder: (context, state) => const IntakeForm(),
     ),
     GoRoute(
-      path: '/login',
-      builder: (context, state) => const LoginForm(),
+      path: '/home',
+      builder: (context, state) => const Home(),
     ),
     GoRoute(
       path: '/testcollege_profile',

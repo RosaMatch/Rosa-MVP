@@ -73,13 +73,21 @@ class _HomePageState extends State<Home> {
                   child: Row(
                     children: [
                       CircleAvatar(
+<<<<<<< Updated upstream:app/lib/homepage.dart
                         backgroundImage: AssetImage('assets/images/juniorpfp.png'),
+=======
+                        backgroundImage: AssetImage("assets/images/julianSquare.png"),
+>>>>>>> Stashed changes:app/lib/pages/home/homepage.dart
                         radius: 31,
                       ),
                       Padding(
                         padding: EdgeInsets.all(5),
                         child: Text(
+<<<<<<< Updated upstream:app/lib/homepage.dart
                           'Welcome Back, Junior',
+=======
+                          'Welcome back, Julian',
+>>>>>>> Stashed changes:app/lib/pages/home/homepage.dart
                           style: TextStyle(
                             color: rosaRedColor,
                             fontWeight: FontWeight.bold,
@@ -239,54 +247,54 @@ class _HomePageState extends State<Home> {
                 )
               )
             ),
-
-            ElevatedButton(
-              onPressed: () {
-                context.push('/login');
-              }, 
-              child: const Text('Go to Login'),
-              
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.push('/intakes');
-              },
-              child: const Text('Go to Intakes'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.go('/testcollege_profile');
-              },
-              child: const Text('Go to College Profile'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.push('/MatchPage1State');
-              },
-              child: const Text('Go to Match'),
-
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.go('/UB_profile');
-              },
-              child: const Text('Go to Ubuff'),
-
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.go('/WES_profile');
-              },
-              child: const Text('Go to WES'),
-
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.go('/H_profile');
-              },
-              child: const Text('Go to Hunter'),
-
-            )
+            //
+            // ElevatedButton(
+            //   onPressed: () {
+            //     context.push('/login');
+            //   },
+            //   child: const Text('Go to Login'),
+            //
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     context.push('/intakes');
+            //   },
+            //   child: const Text('Go to Intakes'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     context.go('/testcollege_profile');
+            //   },
+            //   child: const Text('Go to College Profile'),
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     context.push('/MatchPage1State');
+            //   },
+            //   child: const Text('Go to Match'),
+            //
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     context.go('/UB_profile');
+            //   },
+            //   child: const Text('Go to Ubuff'),
+            //
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     context.go('/WES_profile');
+            //   },
+            //   child: const Text('Go to WES'),
+            //
+            // ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     context.go('/H_profile');
+            //   },
+            //   child: const Text('Go to Hunter'),
+            //
+            // )
 
           ],
         ),

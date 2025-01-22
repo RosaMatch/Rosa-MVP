@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6adb9a23-71e5-424d-9a9a-6856ff561602" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/assets/images/julianSquare.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/intakes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/intakes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/lib/match.dart" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/match.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +54,7 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;julianCollegeProfiles&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
