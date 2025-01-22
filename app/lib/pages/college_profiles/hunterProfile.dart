@@ -29,7 +29,7 @@ class ProfileH extends State<CollegeProfileH>{
               children:[
                 GestureDetector(
                     onTap: () {
-                      context.go('/');
+                      context.go('/home');
                     },
                     child: const Icon(
                       Icons.arrow_back_ios,
