@@ -966,7 +966,7 @@ class ParallaxContainer extends StatelessWidget{
     return Column(
       children: [
         LocationListItem(
-          imageUrl: "assets/images/ubuffsunrise.jpg",
+          imageUrl: "assets/images/uBuffaerialcrop.jpg",
         ),
       ],
 
