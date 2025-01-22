@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
             ),
 
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 6),
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0),
@@ -113,6 +113,13 @@ class HomePage extends StatelessWidget {
                                 iconRoute: 'assets/icons/hunter_icon.jpg',
                                 collegeName: 'CUNY Hunter College',
                               ),
+
+                              UpdateCard(
+                                alertType: 'Undergrad Deadline',
+                                date: '1/15',
+                                iconRoute: 'assets/icons/ubuff_icon.jpg',
+                                collegeName: 'University of Buffalo',
+                              ),
                             ]
                           )
                         )
@@ -124,7 +131,7 @@ class HomePage extends StatelessWidget {
             ),
 
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 6),
               child: Container(
                 height: 220,
                 child: Card(
@@ -162,7 +169,7 @@ class HomePage extends StatelessWidget {
                               padding: EdgeInsets.symmetric(horizontal: 5),
                               children: [
                                 AgendaCard(
-                                  imagePath: 'assets/images/introduction_agenda_picture.jpeg',
+                                  imagePath: 'assets/images/introductionAgendaPicture.jpg',
                                   title: 'Introduction'
                                 ),
 
@@ -183,7 +190,7 @@ class HomePage extends StatelessWidget {
             ),
 
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 6),
               child: Container(
                 height: 220,
                 child: Card(
@@ -222,15 +229,15 @@ class HomePage extends StatelessWidget {
                               children: [
 
                                 CollegeCard(
-                                  imagePath: 'assets/images/wesleyan.jpg',
-                                  name: 'Wesleyan College',
-                                  route: wesProfileRoute,
-                                ),
-
-                                CollegeCard(
                                   imagePath: 'assets/images/reed.jpg',
                                   name: 'Reed College',
                                   route: testCollegeProfileRoute,
+                                ),
+
+                                CollegeCard(
+                                  imagePath: 'assets/images/wesleyan.jpg',
+                                  name: 'Wesleyan College',
+                                  route: wesProfileRoute,
                                 ),
 
                                 CollegeCard(
