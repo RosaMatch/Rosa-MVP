@@ -357,13 +357,13 @@ class Intakes extends State<IntakeForm> {
                                   decoration: BoxDecoration(
                                     color: _selectedImagesForm2
                                               .contains(iconText)
-                                          ? backgroundColorCream3
-                                          : textFormBorderColor,
+                                          ? rosaRedColor
+                                          : Colors.transparent,
                                     border: Border.all(
                                       color: _selectedImagesForm2
                                               .contains(iconText)
-                                          ? rosaRedColor
-                                          : Colors.grey,
+                                          ? inactiveRedColor
+                                          : rosaRedColor,
                                       width: 2,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
@@ -376,8 +376,8 @@ class Intakes extends State<IntakeForm> {
                                         size: iconSize,
                                         color: _selectedImagesForm2
                                                 .contains(iconText)
-                                            ? iconColor
-                                            : inactiveRedColor,
+                                            ? backgroundColorCream3
+                                            : rosaRedColor,
                                       ),
                                       const SizedBox(height: 8.0),
                                       Text(
@@ -385,8 +385,10 @@ class Intakes extends State<IntakeForm> {
                                         style: TextStyle(
                                           color: _selectedImagesForm2
                                                   .contains(iconText)
-                                              ? iconColor
-                                              : inactiveRedColor,
+                                              ? backgroundColorCream3
+                                              : rosaRedColor,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                     ],
@@ -455,7 +457,7 @@ class Intakes extends State<IntakeForm> {
                                       ][index];
                                       final iconText = [
                                         'Cost',
-                                        'Reasearch',
+                                        'Research',
                                         'Career',
                                         'Sports',
                                         'Location',
@@ -486,12 +488,12 @@ class Intakes extends State<IntakeForm> {
                                             color: _selectedImagesForm3
                                                       .contains(iconText)
                                                   ? backgroundColorCream3
-                                                  : textFormBorderColor,
+                                                  : Colors.transparent,
                                             border: Border.all(
                                               color: _selectedImagesForm3
                                                       .contains(iconText)
                                                   ? activeRedColor
-                                                  : inactiveRedColor,
+                                                  : backgroundColorCream3,
                                               width: 2,
                                             ),
                                             borderRadius:
@@ -507,7 +509,7 @@ class Intakes extends State<IntakeForm> {
                                                 color: _selectedImagesForm3
                                                         .contains(iconText)
                                                     ? iconColor
-                                                    : inactiveRedColor,
+                                                    : backgroundColorCream3,
                                               ),
                                               const SizedBox(height: 8.0),
                                               Text(
@@ -516,7 +518,9 @@ class Intakes extends State<IntakeForm> {
                                                   color: _selectedImagesForm3
                                                           .contains(iconText)
                                                       ? rosaRedColor
-                                                      : inactiveRedColor,
+                                                      : backgroundColorCream3,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                               ),
                                             ],
